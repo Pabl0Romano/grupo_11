@@ -9,3 +9,4 @@ Paginas de ejemplo: http://www.multitecno.com.ar/ / https://www.musimundo.com/ /
 
 
 Pablo Romano: Soporte de Sistemas, fan de la compu, jugador suuuuuuper amateur de padel.
+José Luis Ripa: Dedicado al rubro Inmobiliario, apasionado del derecho y correr.
