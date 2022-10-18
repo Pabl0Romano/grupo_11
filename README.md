@@ -25,8 +25,6 @@ https://www.mercadolibre.com.ar/ (Nos pareció atractivo el sitio por la poca sa
 https://versus.com/es (Nos interesó este sitio por la herramienta que brinda para comparar productos de características similares.)
 
 
-Ideas para nombres: E-home / TechnoGlobal / Hogar & Tecno / Electro Speed / ElectroHome.
-
 
 
 
