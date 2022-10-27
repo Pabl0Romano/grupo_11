@@ -19,13 +19,14 @@
     align-items: center;
     width: 50vw;
     flex-wrap: wrap;
+    gap: 2vh;
 }
 
 #big-icon {
     border: solid seagreen 2px;
     padding: 1vh;
     border-radius: 50%;
-    font-size: 5vh;
+    font-size: 4vh;
 }
 
 .header-inferior {
@@ -42,8 +43,51 @@
 .barra-busqueda {
     display: flex;
     align-items: center;
+    align-self: center;
+}
+
+#lupa {
+    font-size: 40px;
 }
 
 .barra {
     width: 70vw;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.banner {
+    width: 100vw;
+}
+
+.Producto {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border: solid lightgray 1px;
+    margin: 0% 5%;
+    border-radius: 10px;
+}
+
+.img-producto{
+    width: 40%;
+    border: solid lightgrey 1px;
+    border-radius: 10px;
+}
+
+.Detalle-producto {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nombre-producto {
+    font-size: 1.5em;
+    align-self: center;
+    margin-left: 1vw;
+}
+
+.precio {
+    font-size: 2em;
+    margin-left: 1vw;
 }
