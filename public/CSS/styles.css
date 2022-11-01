@@ -1,0 +1,49 @@
+*{
+    font-family: "roboto";
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-superior {
+    display: flex;
+}
+
+.logo {
+    width: 50vw;
+}
+
+.inicio-carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    flex-wrap: wrap;
+}
+
+#big-icon {
+    border: solid seagreen 2px;
+    padding: 1vh;
+    border-radius: 50%;
+    font-size: 5vh;
+}
+
+.header-inferior {
+    display: flex;
+    align-items: flex-start;
+    background-color: seagreen;
+}
+.hamburguesa {
+    font-size: 12vw;
+    padding: 2%;
+    background-color: seagreen;
+}
+
+.barra-busqueda {
+    display: flex;
+    align-items: center;
+}
+
+.barra {
+    width: 70vw;
+}
