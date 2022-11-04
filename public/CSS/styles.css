@@ -19,21 +19,14 @@
     align-items: center;
     width: 50vw;
     flex-wrap: wrap;
-<<<<<<< HEAD
-=======
     gap: 2vh;
->>>>>>> 10dc3e3f1245202b0223588a817d491898f6eb08
 }
 
 #big-icon {
     border: solid seagreen 2px;
     padding: 1vh;
     border-radius: 50%;
-<<<<<<< HEAD
     font-size: 5vh;
-=======
-    font-size: 4vh;
->>>>>>> 10dc3e3f1245202b0223588a817d491898f6eb08
 }
 
 .header-inferior {
@@ -50,20 +43,15 @@
 .barra-busqueda {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
-=======
     align-self: center;
 }
 
 #lupa {
     font-size: 40px;
->>>>>>> 10dc3e3f1245202b0223588a817d491898f6eb08
 }
 
 .barra {
     width: 70vw;
-<<<<<<< HEAD
-=======
     height: 40px;
     border-radius: 10px;
 }
@@ -102,5 +90,4 @@
 .precio {
     font-size: 2em;
     margin-left: 1vw;
->>>>>>> 10dc3e3f1245202b0223588a817d491898f6eb08
 }
