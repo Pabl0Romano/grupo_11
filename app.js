@@ -10,6 +10,7 @@ app.listen(3000,()=>{
     console.log("Servidor funcionando en puerto " + PORT)
 });
 
+
 app.get("/",(req,res)=>{
     res.sendFile(path.join(__dirname,"/views/index.html"));
 });
@@ -20,3 +21,17 @@ app.get("/register",(req,res)=>{
 app.get("/login",(req,res)=>{
     res.sendFile(path.join(__dirname,"/views/login.html"));
 });
+app.get("/producto",(req,res)=>{
+    res.sendFile(path.join(__dirname,"/views/productDetail.html"));
+});
+
+
+app.get("/carrito",(req,res)=>{
+    res.sendFile(path.join(__dirname,"/views/carrito.html"));
+});
+
+
+
+
+
+

@@ -1,3 +1,10 @@
+:root{
+    --Verde-claro: #dff3e3;
+    --verde-oscuro: #174d39;
+    --verde: #219267;
+    --gris-claro: #d9d9d9;
+}
+
 *{
     font-family: "roboto";
     box-sizing: border-box;
@@ -7,6 +14,13 @@
 
 .header-superior {
     display: flex;
+    background-color: var(--Verde-claro);
+}
+
+header {
+    position: sticky;
+    top: 0px;
+
 }
 
 .logo {
@@ -23,35 +37,39 @@
 }
 
 #big-icon {
-    border: solid seagreen 2px;
+    border: solid #174d39 2px;
     padding: 1vh;
     border-radius: 50%;
     font-size: 5vh;
+    color: var(--verde-oscuro);
 }
 
 .header-inferior {
     display: flex;
     align-items: flex-start;
-    background-color: seagreen;
+    background-color: var(--verde);
 }
 .hamburguesa {
-    font-size: 12vw;
+    font-size: 8vw;
     padding: 2%;
-    background-color: seagreen;
+    background-color: var(--verde);
 }
 
 .barra-busqueda {
     display: flex;
     align-items: center;
     align-self: center;
+    position: relative;
 }
 
 #lupa {
-    font-size: 40px;
+    font-size: 30px;
+    position: relative;
+    right: 35px;
 }
 
 .barra {
-    width: 70vw;
+    width: 80vw;
     height: 40px;
     border-radius: 10px;
 }
@@ -137,3 +155,31 @@
     border-radius: 10px;
 }
 
+footer {
+    background-color:var(--Verde-claro) ;
+}
+
+footer p{
+    font-size: 12px;
+}
+
+footer ul li{
+    border: solid #174d39 1px;
+ }
+
+footer ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.redes-container{
+    display: flex;
+    font-size: 30px;
+    justify-content: space-between;
+    padding-left: 10vw;
+    padding-right: 10vw;
+}
+
+.redes-container i{
+    color: black;
+}

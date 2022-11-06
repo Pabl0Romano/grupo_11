@@ -10,27 +10,65 @@
     <link href="CSS/styles.css" rel="stylesheet">
 </head>
 <body>
-    <section class="titulo">
-        <h2>INICIÁ SESIÓN</h2>
-    </section>
-    <form action="/registro" method="POST"> 
-        <section class="formulario">
-            <article class="datos">       
-                <p class="campo">
-                    <label for="email">Email*</label>
-                    <input type="email" name="email" id="email">
-                </p>
-                <p class="campo">
-                    <label for="contraseña">Contraseña*</label>
-                    <input type="password" name="contraseña" id="contraseña">
-                </p>
-                <h3 class="obligatorio">¿Olvidaste tu contraseña?</h3>
-            </article>
-            <div class="crear">
-                <button type="submit">INICIAR SESIÓN</button>
-            </div>
-            <p class="irlogin">¿No tenés cuenta?<a href="/register">Crear cuenta</a></p>
+    <header>
+        <nav class="header-superior">
+                <img class="logo" src="images/2(2).jpg">
+            <nav class="inicio-carrito">
+                <i id="big-icon" class="fa-solid fa-user"></i>
+                <a href='views\carrito.html'>
+                <i id="big-icon" class="fa-solid fa-cart-shopping"></i>
+                </a>   
+                </nav>
+        </nav>
+        <nav class="header-inferior">
+            <nav class="hamburguesa">
+                <i class="fa-solid fa-bars"></i>
+            </nav>
+            <nav class="barra-busqueda">
+                <input class="barra" placeholder="Buscar productos">
+                <i id="lupa" class="fa-solid fa-magnifying-glass"></i>
+            </nav>
+        </nav>
+    </header>
+    <main>
+        <section class="titulo">
+            <h2>INICIÁ SESIÓN</h2>
         </section>
-    </form>
+        <form action="/registro" method="POST"> 
+            <section class="formulario">
+                <article class="datos">       
+                    <p class="campo">
+                        <label for="email">Email*</label>
+                        <input type="email" name="email" id="email">
+                    </p>
+                    <p class="campo">
+                        <label for="contraseña">Contraseña*</label>
+                        <input type="password" name="contraseña" id="contraseña">
+                    </p>
+                    <h3 class="obligatorio">¿Olvidaste tu contraseña?</h3>
+                </article>
+                <div class="crear">
+                    <button type="submit">INICIAR SESIÓN</button>
+                </div>
+                <p class="irlogin">¿No tenés cuenta?<a href="/register">Crear cuenta</a></p>
+            </section>
+        </form>
+    </main>
+    <footer>
+        <ul>
+            <li><a href="">Contacto</a></li>
+            <li><a href="">Nosotros</a></li>
+            <li><a href="">FAQs</a></li>
+            <li><a href="">Ayuda</a></li>
+        </ul>
+        <article class="redes-container">
+            <a href="https://www.linkedin.com/"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-square-instagram"></i></a>
+            <i class="fa-solid fa-square-phone-flip"></i>
+            <a href="https://es-la.facebook.com/"><i class="fa-brands fa-square-facebook"></i></a>
+            <a href="https://twitter.com/?lang=es"><i class="fa-brands fa-square-twitter"></i></a>
+        </article>
+        <p>Terminos y condiciones</p>
+    </footer>
 </body>
 </html>
