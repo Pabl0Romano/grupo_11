@@ -5,8 +5,15 @@
     padding: 0px;
 }
 
+
+
 .header-superior {
     display: flex;
+}
+
+header {
+    position: fixed;
+    top: 0px;
 }
 
 .logo {
