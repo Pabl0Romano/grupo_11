@@ -91,3 +91,49 @@
     font-size: 2em;
     margin-left: 1vw;
 }
+
+/*ESTILOS DEL FORMULARIO DE REGISTRO*/
+
+.titulo{
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #219267;
+    text-align: center;
+    padding: 10px;
+    border: solid 2px #174d39;
+    margin: 10px;
+}
+.formulario{
+    background-color: #dff3e3;
+    margin: 20px;
+    border: 20px;
+    padding: 20px;
+}
+.campo {
+    padding: 2px;
+    margin-top: 7px;
+    font-size: 12px;
+}
+.campo input{
+    width: 100%;
+    margin-top: 5px;
+}
+.obligatorio{
+    font-size: 8px;
+}
+.irlogin{
+    font-size: 8px;
+    margin-top: 7px;
+    text-align: right;
+}
+.crear{
+    text-align: right;
+    margin-top: 10px;
+}
+.crear button{
+    background-color: #174d39;
+    color: #dff3e3;
+    padding: 10px;
+    border-radius: 10px;
+}
+
