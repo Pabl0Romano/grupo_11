@@ -170,6 +170,7 @@ header {
 .campo input{
     width: 100%;
     margin-top: 5px;
+    border: 0;
 }
 .obligatorio{
     font-size: 8px;
@@ -280,5 +281,42 @@ header section{
     display: flex;
     gap: 20px;
     font-weight: bold;
+}
+.vinculos a{
+    text-decoration: none;
+    color: black;
+}
+.titulo{
+    width: 70%;
+    text-align: center;
+    margin-left: 15%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.formulario{
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.campo label{
+    font-size: 20px;
+}
+.campo input{
+    font-size: 30px;
+    border: 0;
+}
+.obligatorio{
+    font-size: 12px;
+}
+.irlogin{
+    font-size: 12px;
+}
+.crear button{
+    font-size: 30px;
+}
+.crear button:hover{
+    background-color: #219267;
+    box-shadow: 5px 5px 3px 3px rgba(53,53,53,0.89);
 }
 }
