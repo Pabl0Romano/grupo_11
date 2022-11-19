@@ -220,6 +220,27 @@ footer ul li a{
     color: black;
 }
 
+.producto{
+    background-color: #dff3e3;
+    margin: 20px;
+    padding: 20px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    border-bottom: solid #174d39 2px;
+}
+.imagenProducto{
+    width: 20%;
+    border-radius: 10%;
+}
+.descripcionProducto{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.precioProducto{
+    font-size: 50px;
+}
+
 /*Port a dekstop*/
 /*HOME*/
 @media (min-width: 925px) {
