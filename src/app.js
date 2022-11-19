@@ -6,28 +6,27 @@ let PORT = process.env.PORT || 3000
 
 app.use(express.static("public"));
 
+app.set("view engine", "ejs");
+
 app.listen(3000,()=>{
     console.log("Servidor funcionando en puerto " + PORT)
 });
 
 
 app.get("/",(req,res)=>{
-    res.sendFile(path.join(__dirname,"/views/index.html"));
+    res.render("index");
 });
-
 app.get("/register",(req,res)=>{
-    res.sendFile(path.join(__dirname,"/views/register.html"));
+    res.render("register");
 });
 app.get("/login",(req,res)=>{
-    res.sendFile(path.join(__dirname,"/views/login.html"));
+    res.render("login");
 });
 app.get("/producto",(req,res)=>{
-    res.sendFile(path.join(__dirname,"/views/productDetail.html"));
+    res.render("productoDetail");
 });
-
-
 app.get("/carrito",(req,res)=>{
-    res.sendFile(path.join(__dirname,"/views/carrito.html"));
+    res.render("carrito");
 });
 
 

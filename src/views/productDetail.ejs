@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TecnoGlobal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/250ed1169a.js" crossorigin="anonymous"></script>
-    <link href="CSS/styles.css" rel="stylesheet">
-</head>
+    <%- include('partials/head', {title: 'Porduct detail'}) %>
 <body>
-    
+    <%- include('partials/header') %>
     <main>
         <section class="lista de productos">
             <img class=productos src="/images/licuadora smartlife.jpg" alt="licuadora smartlife">
@@ -82,5 +74,6 @@
             </article>
         </section>    
         </main>
+        <%- include('partials/footer') %>
 </body>
 </html>
