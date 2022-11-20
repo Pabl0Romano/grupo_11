@@ -1,0 +1,38 @@
+[
+ {
+"id": 1,        
+"name":"Balanza de cocina keber",
+"description": "Balanza keber, con visor digital y muy recistente",
+"image":"images/balanza-cocina-keber1-151d8ff2f7d8896da316278508265921-640-0.png",
+"category": "electrodomestico",
+"price": 4000,
+"discount": 20
+ },
+ {
+    "id": 2,        
+"name":"Notebook ASUS X515EA",
+"description": "Notebook ASUS, 12g RAM, 256 disco duro, intel core i7",
+"image":"images/Notebook-ASUS-X515EA.png",
+"category": "Laptops",
+"price": 230.000,
+"discount": 20
+ },
+ {
+    "id": 3,        
+"name":"Licuadora atma ",
+"description": "licuadora atma con jarra de vidrio feforzada, y mayor potencia",
+"image":"images/licuadora-atma-li8444-con-jarra-de-vidrio-220v-roja.jpg",
+"category": "electrodomestico",
+"price": 23.000,
+"discount": 20
+ },
+ {
+    "id": 4,        
+"name":"Celular xiaomi redmi 10",
+"description": "Celular xiaomi 8g de ram, 56px camara frontal, 128g memoria",
+"image":"images/Celular-xiaomi-redmi-10-.png",
+"category": "electrodomestico",
+"price": 92.000,
+"discount": 20
+ }
+]
