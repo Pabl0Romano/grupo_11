@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require('path');
+const index = require("./routes/mainRouter")
+const productRouter = require("./routes/productRouter")
+const usersRouter = require("./routes/usersRouter")
 
 let PORT = process.env.PORT || 3000
 
@@ -14,21 +17,9 @@ app.listen(3000,()=>{
 });
 
 
-app.get("/",(req,res)=>{
-    res.render("index");
-});
-app.get("/register",(req,res)=>{
-    res.render("register");
-});
-app.get("/login",(req,res)=>{
-    res.render("login");
-});
-app.get("/producto",(req,res)=>{
-    res.render("product");
-});
-app.get("/carrito",(req,res)=>{
-    res.render("carrito");
-});
+app.use("/",index);
+app.use("/producto",productRouter);
+app.use("/user",usersRouter)
 
 
 

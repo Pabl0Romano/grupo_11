@@ -1,21 +1,21 @@
 const fs = require('fs');
+const { get } = require('http');
 const path = require('path');
 
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+const productsFilePath = path.join(__dirname,'../data/productoDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const controller = {
-	// Root - Show all products
-	index: (req, res) => {
-		res.render('products', {products})
-	},
 
-	// Detail - Detail from one product
+const controller = {
+
 	detail: (req, res) => {
 		let product = products.find(product=>product.id == req.params.id);
-		res.render('detail', {products});
+		res.render('detail', {product})
+	},
+
+	index: (req,res) => {
+		res.render("product");
 	},
 
 	// Create - Form to create
@@ -23,7 +23,7 @@ const controller = {
 		res.render('product-create-form')
 	},
 	
-	// Create -  Method to store
+	/*
 	store: (req, res) => {
 		let newProduct = {
 			"id": products[products.length -1]["id"]+1,
@@ -72,6 +72,6 @@ const controller = {
 	destroy : (req, res) => {
 		// Do the magic
 	}
+	*/
 };
-
 module.exports = controller
