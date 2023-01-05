@@ -23,7 +23,6 @@ const controller = {
 		res.render('product-create-form')
 	},
 	
-	/*
 	store: (req, res) => {
 		let newProduct = {
 			"id": products[products.length -1]["id"]+1,
@@ -38,40 +37,38 @@ const controller = {
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ""));
 
 		res.redirect('/');
-	},
 
+		
+	},
 	// Update - Form to edit
 	edit: (req, res) => {
 		let product = products.find(product=>product.id == req.params.id);
 		res.render('product-edit-form',{product})
 	},
-	
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
-		let productEdit = products.find(product=>product.id == req.params.id)
+		let productEdit = products.find(product => product.id == req.params.id)
 		let addProduct = {
 			"id": productEdit.id,
 			"name": req.body.name,
 			"price": req.body.price,
 			"discount": req.body.discount,
 			"category": req.body.category,
-			"description": req.body.description, 
-	};
-	let newProduct = product.map(product =>{
-		if(productEdit == product.id){
-		  return product = addProduct
-		}	
+			"description": req.body.description,
+		};
+		
+		products.splice(addProduct.id-1,1,addProduct)
+		
+		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ""));
+		
+		res.redirect("/");
 
-	})
-	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ""));
-
-	
 	},
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
+		let productDestroy = products.find(product => product.id == req.params.id)
+		products.splice(productDestroy.id-1,1)
+		res.redirect("/")
 	}
-	*/
 };
 module.exports = controller
