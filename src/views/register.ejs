@@ -7,7 +7,7 @@
         <section class="titulo">
             <h2>CREÁ TU CUENTA</h2>
         </section>
-        <form action="/user/register" method="POST"> 
+        <form action="/user/register" method="POST" enctype="multipart/form-data"> 
             <section class="formulario">
                 <article class="datos">
                     <p class="campo">
@@ -41,6 +41,10 @@
                     </p>
                     <h3 class="obligatorio">*Campos obligatorios</h3>
                 </article>
+                <p>
+                    <label for="imgperfil">Imagen de Perfil</label>
+                    <input type="file" name= "imgperfil">
+                </p>
                 <div class="crear">
                     <button type="submit">CREAR CUENTA</button>
                 </div>

@@ -29,7 +29,7 @@ const controller = {
 			"email": req.body.email,
 			"password": req.body.contraseña,
 			"category": req.body.telefono,
-            "image": ""
+            "image": "imageName"
 		}
 
 		users.push(newUser);
