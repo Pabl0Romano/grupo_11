@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('partials/head', {title: 'Register'}) %>
+
+    <%- include('./partials/head') %>
+
 <body>
+
+    <%- include('./partials/header') %>
+    
+    <img src="../../public/images/users/<%=user.image%>" alt="imagen de usuario">
+    <br>
     <%= user.firstName %>
     <%- include('partials/footer') %>
 </body>

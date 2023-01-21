@@ -2,6 +2,8 @@ const fs = require('fs');
 const { get } = require('http');
 const path = require('path');
 const {validationResult} = require("express-validator");
+const bcrypt = require("bcryptjs");
+const salt = bcrypt.genSaltSync(10);
 
 const usersFilePath = path.join(__dirname,'../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -23,13 +25,13 @@ const controller = {
         }
         
         let newUser = {
-			"id": users[users.length -1]["id"]+1,
-			"firstName": req.body.nombre,
-			"lastName": req.body.apellido,
-			"email": req.body.email,
-			"password": req.body.contraseña,
-			"category": req.body.telefono,
-            "image": "imageName"
+			id: users[users.length -1]["id"]+1,
+			firstName: req.body.nombre,
+			lastName: req.body.apellido,
+			email: req.body.email,
+			password: bcrypt.hashSync(req.body.contrasenia, salt),
+			category: req.body.telefono,
+            image: req.file.filename
 		}
 
 		users.push(newUser);
@@ -42,8 +44,24 @@ const controller = {
     profile: (req,res) =>{
         let user = users.find(users=>users.id == req.params.id);
         res.render("profile",{user})
-    }
+    },
 
+    loginProcess: (req, res) => {
+        let ingresante = {
+            email: req.body.email,
+            password: req.body.contrasenia
+        }
+        
+        let user = users.find(users=>users.email == ingresante.email);
+
+        bcrypt.compare(ingresante.password, user.password, function(err, result) {
+        if (user != null && result) {
+            res.render("profile",{user})
+        } else {
+            res.render("login")
+        }
+    })
+    }
 };
 
 module.exports = controller;

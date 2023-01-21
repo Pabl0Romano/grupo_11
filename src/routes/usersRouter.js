@@ -5,9 +5,9 @@ const multer = require("multer");
 const path = require("path")
 
 //multer config
-let multerDiskStorage = multer.diskStorage({
+const multerDiskStorage = multer.diskStorage({
     destination: (req,file,callback) => {
-        let folder = path.join(__dirname,"../");
+        let folder = path.join(__dirname,"../../public/images/users");
         callback(null,folder);
     },
     filename: (req,file,callback) => {
@@ -15,7 +15,7 @@ let multerDiskStorage = multer.diskStorage({
         callback(null,imageName);
     }
 });
-const upload = multer({multerDiskStorage});
+const upload = multer({storage:multerDiskStorage});
 
 
 // ************ Controller Require ************
@@ -29,6 +29,7 @@ const validaciones = [
 ]
 
 router.get("/login",usersController.login);
+router.post("/login",usersController.loginProcess)
 router.get("/register",usersController.register);
 router.post("/register",upload.single("imgperfil"),validaciones,usersController.processRegister);
 router.get("/profile/:id",usersController.profile);
