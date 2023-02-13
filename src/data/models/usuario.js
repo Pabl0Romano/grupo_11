@@ -1,4 +1,4 @@
-/*function usuariosData(sequelize, dataTypes) {
+function usuariosData(sequelize, dataTypes) {
 
     const alias = "Usuarios"
 
@@ -56,4 +56,4 @@ Usuario.associate = (models) => {
 return Usuario
 }
 
-module.exports = usuariosData;*/
+module.exports = usuariosData;

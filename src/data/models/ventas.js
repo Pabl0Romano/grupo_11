@@ -1,4 +1,4 @@
-/*function ventasData(sequelize, dataTypes){
+function ventasData(sequelize, dataTypes){
 
     alias = 'Venta';
     
@@ -54,4 +54,4 @@
     }
     
     
-    module.exports = ventasData;*/
+    module.exports = ventasData;

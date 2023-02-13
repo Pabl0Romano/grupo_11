@@ -1,4 +1,4 @@
-/*module.exports = (sequelize, DataTypes)=>{
+module.exports = (sequelize, DataTypes)=>{
     let alias = "Product"
         let cols = {
             id:{
@@ -78,4 +78,4 @@
             })      
         }
     return Product;
-    }*/
+    }

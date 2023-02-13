@@ -1,4 +1,4 @@
-/*module.exports = (sequelize, dataTypes) => {
+module.exports = (sequelize, dataTypes) => {
 
     alias = 'Seccion';
     
@@ -32,4 +32,4 @@
     }
     
     
-    // module.exports = loginData;*/
+    module.exports = loginData;

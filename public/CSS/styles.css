@@ -115,12 +115,12 @@ header {
     margin: 0% 5%;
     border-radius: 10px;*/
     display: block;
-    background-color: white;
+    background-color: rgb(243, 246, 243);
     width: 100%;
-    border: solid 1px #ebebeb;
+    border: solid 1px #231919;
     margin: auto;
     margin-bottom: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     transition: all 450ms;
     
 
@@ -132,12 +132,16 @@ header {
     display: flex!important;
     align-items: center;
     justify-content: center;
+    transition: all 450ms;
+    border-radius: 5px;
+    background-color: rgb(189, 237, 179);
 }
 
 .Detalle-producto {
     width: 60%;
     display: flex;
     flex-wrap: wrap;
+    transition: all 450ms;
 }
 
 .nombre-producto {
@@ -186,18 +190,21 @@ header {
 
 .titulo{
     font-size: 1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Playfair Display', serif;
     color: #219267;
     text-align: center;
     padding: 10px;
     border: solid 2px #174d39;
     margin: 10px;
+    
 }
 .formulario{
+    
+    padding: 20px 15px;
     background-color: #dff3e3;
-    margin: 20px;
-    border: 20px;
-    padding: 20px;
+    text-align: left;
+    color: rgb(5, 97, 25);
+    font-family: 'Playfair Display', serif;
 }
 .campo {
     padding: 2px;
@@ -230,10 +237,19 @@ header {
     transition: all 450ms 
 }
 .crear button{
-    background-color: #174d39;
+    /*background-color: #174d39;
     color: #dff3e3;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 10px;*/
+    width: 40%;
+    background-color: #a6a597;
+    border: none;
+    font-size: 20px;
+    color:#ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: all 450ms;
 }
 
 footer {
