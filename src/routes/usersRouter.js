@@ -24,11 +24,11 @@ const validaciones = [
     body("nombre").notEmpty().withMessage("El campo no puede estar vacio"),
     body("apellido").notEmpty().withMessage("El campo no puede estar vacio"),
     body("email").notEmpty().withMessage("El campo no puede estar vacio"),
-    //body("contraseña").notEmpty().withMessage("El campo no puede estar vacio"),
-    //body("contraseñaagain").notEmpty().withMessage("El campo no puede estar vacio")
+    body("contraseña").notEmpty().withMessage("El campo no puede estar vacio"),
+    body("contraseñaagain").notEmpty().withMessage("El campo no puede estar vacio")
 ]
 //Aquí ejecuto mis validaciones
-/*const validacionesLogin = [
+const validacionesLogin = [
     body('email').isEmail().withMessage('Agregar un email válido'),
     body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
     body('email').custom( (value  ) =>{
@@ -90,7 +90,7 @@ const validacionesRegistro = [
           }
           return false;
       }).withMessage('Debe elegir su avatar y debe ser un archivo con formato: .JPG ó JPEG ó PNG')
-    ]*/
+    ]
 
 router.get("/login",usersController.login);
 router.post("/login",usersController.loginProcess)

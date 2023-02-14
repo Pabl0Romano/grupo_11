@@ -1,6 +1,8 @@
+const { register } = require("../../src/controllers/userController");
+
 window.onload=function(){
     //Aquí guardo el formulario con sus elementos
-    var registerForm = document.forms[0]
+    let registerForm = document.forms[0]
     let fomulario = document.querySelector('.form');
     formulario.elements.email.focus();
     console.log(formulario);
@@ -20,7 +22,7 @@ window.onload=function(){
       //Esta manera de programarlo en ECMA6, se llama destructuración de código, tal como pregunto Facu.
       let { email, password, passwordRepeat,
       userName, termsCondition } = formulario.elements
-      //De esta forma se programaba antes del 2015
+      
       //email = registerForm.elements.email
       //password = registerForm.elements.password
       //Y así con cada una de las variables
@@ -156,3 +158,4 @@ window.onload=function(){
       
       
   }   
+  module.export = validator-register
