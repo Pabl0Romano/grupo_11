@@ -4,6 +4,7 @@ const path = require('path');
 const {validationResult} = require("express-validator");
 const bcrypt = require("bcryptjs");
 const salt = bcrypt.genSaltSync(10);
+const db = require("../database/models");
 
 const usersFilePath = path.join(__dirname,'../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
@@ -24,20 +25,16 @@ const controller = {
             return res.render("register",{mensajesDeError: errores.mapped()})
         }
         
-        let newUser = {
-			id: users[users.length -1]["id"]+1,
-			firstName: req.body.nombre,
-			lastName: req.body.apellido,
-			email: req.body.email,
-			password: bcrypt.hashSync(req.body.contrasenia, salt),
-			category: req.body.telefono,
-            image: req.file.filename
-		}
+        let newuser = db.Users.create({
+            first_name: req.body.nombre,
+            last_name: req.body.apellido,
+            email: req.body.email,
+            password: req.body.contrasenia,
+            phone_number: req.body.telefono,
+            id_city: "1"
+      });
 
-		users.push(newUser);
-		fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ""));
-
-		res.redirect('/user/profile/'+newUser.id);
+		res.redirect('/');
 
     },
 

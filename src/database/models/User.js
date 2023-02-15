@@ -31,7 +31,7 @@ module.exports = (sequelize,dataTypes) =>{
         id_city: {
             type: dataTypes.INTEGER,
             references: {
-                model: City,
+                model: "City",
                 key: "id_city"
             }
         }
@@ -39,7 +39,7 @@ module.exports = (sequelize,dataTypes) =>{
 
     let config = {
         tableName: "users",
-        timeStamps: false
+        timestamps: false
     }
 
     const User = sequelize.define(alias,cols,config);

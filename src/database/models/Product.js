@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) =>{
 
-    let alias = "Products"
+    let alias = "Product"
 
     let cols = {
         id_product: {
@@ -17,28 +17,32 @@ module.exports = (sequelize, dataTypes) =>{
         price: {
             type: dataTypes.INTEGER
         },
-        id_brand: {
-            type: dataTypes.INTEGER,
-            references: {
-                model: Brand,
-                key: "id_brand"
-            }
-        },
         id_category: {
-            type: dataTypes.INTEGER,
-            references: {
-                model: Category,
-                key: "id_category"
-            }
+            type: dataTypes.INTEGER
+        },
+        id_brand: {
+            type: dataTypes.INTEGER
         }
+        
     }
 
     let config = {
         tableName: "products",
-        timeStamps: false
+        timestamps: false
     }
 
     const Product = sequelize.define(alias,cols,config);
+
+    Product.associate = function(models){
+        Product.belongsTo(models.Category,{
+            as:"category",
+            foreingKey:"id_category"
+        })
+        Product.belongsTo(models.Brand,{
+            as:"Brand",
+            foreingKey:"id_brand"
+        })
+    }
 
     return Product;
 }

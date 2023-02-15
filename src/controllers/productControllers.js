@@ -1,6 +1,10 @@
+const { Console } = require('console');
 const fs = require('fs');
 const { get } = require('http');
 const path = require('path');
+const db = require("../database/models");
+
+
 
 const productsFilePath = path.join(__dirname,'../data/productoDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -20,26 +24,22 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render('product-create-form')
+		db.Category.findAll()
+			.then(function(categories){
+				return res.render('product-create-form',{categories:categories})
+			})
 	},
-	
+
 	store: (req, res) => {
-		let newProduct = {
-			"id": products[products.length -1]["id"]+1,
-			"name": req.body.name,
-			"price": req.body.price,
-			"discount": req.body.discount,
-			"category": req.body.category,
-			"description": req.body.description 
-		}
-
-		products.push(newProduct);
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ""));
-
-		res.redirect('/');
-
-		
-	},
+		db.Product.create({
+			  name: req.body.name,
+			  description: req.body.description,
+			  price: req.body.price,
+			  id_category: req.body.category,
+			  id_brand:req.body.brand
+		});
+		res.redirect('/products');
+    },
 	// Update - Form to edit
 	edit: (req, res) => {
 		let product = products.find(product=>product.id == req.params.id);
