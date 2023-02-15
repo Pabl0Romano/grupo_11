@@ -28,7 +28,8 @@ module.exports = (sequelize, dataTypes) =>{
 
     let config = {
         tableName: "products",
-        timestamps: false
+        timestamps: false,
+        underscored: true,
     }
 
     const Product = sequelize.define(alias,cols,config);
@@ -36,11 +37,11 @@ module.exports = (sequelize, dataTypes) =>{
     Product.associate = function(models){
         Product.belongsTo(models.Category,{
             as:"category",
-            foreingKey:"id_category"
+            foreingKey:"id_category",
         })
         Product.belongsTo(models.Brand,{
-            as:"Brand",
-            foreingKey:"id_brand"
+            as:"brand",
+            foreingKey:"id_brand",
         })
     }
 

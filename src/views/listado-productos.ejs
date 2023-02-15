@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<%- include('./partials/head') %>
+
+<body>
+	<%- include('./partials/header') %>
+
+    <% for(let i = 0; i< productos.length;i++) { %>
+        <section class="lista de productos">
+            <img class=productos src="" alt="imagen">
+            <article class="descripcion prod.">
+            <p class="fas fa-truck"></p>
+            <p class="precios">$<%=productos[i].price %><i class="descuentos">20% off</i></p>
+            <p class="descripciones"><strong><%= productos[i].name %></strong></p>
+            </article>
+        </section>
+    <% } %>
+
+    <%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

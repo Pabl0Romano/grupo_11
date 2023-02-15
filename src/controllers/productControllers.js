@@ -4,10 +4,6 @@ const { get } = require('http');
 const path = require('path');
 const db = require("../database/models");
 
-
-
-const productsFilePath = path.join(__dirname,'../data/productoDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
@@ -20,6 +16,14 @@ const controller = {
 
 	index: (req,res) => {
 		res.render("product");
+	},
+
+	listado: (req,res) => {
+		db.Product.findAll()
+			.then(function(productos){
+				console.log(productos);
+				res.render("listado-productos",{productos:productos})
+			})
 	},
 
 	// Create - Form to create
@@ -42,8 +46,10 @@ const controller = {
     },
 	// Update - Form to edit
 	edit: (req, res) => {
-		let product = products.find(product=>product.id == req.params.id);
-		res.render('product-edit-form',{product})
+		db.Product.findAll({model:db.Category, as:"Category"})
+			.then(function(productos){
+				res.render("product-edit-form",{productos:productos})
+			})
 	},
 	// Update - Method to update
 	update: (req, res) => {

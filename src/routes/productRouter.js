@@ -19,6 +19,7 @@ let uploadFile = multer({storage: multerDiskStorage});*/
 
 
 router.get("/",productControllers.index);
+router.get("/listado",productControllers.listado)
 router.get("/create",productControllers.create);
 router.get("/:id",productControllers.detail);
 router.post("/create",productControllers.store);

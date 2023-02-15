@@ -3,7 +3,7 @@ module.exports = (sequelize, dataTypes) =>{
     let alias = "Category"
 
     let cols = {
-        id_category: {
+        idcategory: {
             type: dataTypes.INTEGER,
             primaryKey: true
         },
@@ -14,15 +14,16 @@ module.exports = (sequelize, dataTypes) =>{
 
     let config = {
         tableName: "categories",
-        timestamps: false
+        timestamps: false,
+        underscored: true,
     }
 
     const Category = sequelize.define(alias,cols,config);
 
     Category.associate = function(models){
         Category.hasMany(models.Product,{
-            as:"products",
-            foreingKey:"id_category"
+            as:"productos",
+            foreingKey:"id_category",
         })
     }
 

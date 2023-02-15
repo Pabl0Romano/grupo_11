@@ -14,17 +14,19 @@ module.exports = (sequelize, dataTypes) =>{
 
     let config = {
         tableName: "brands",
-        timestamps: false
+        timestamps: false,
+        underscored: true,
     }
 
     const Brand = sequelize.define(alias,cols,config);
 
     Brand.associate = function(models){
         Brand.hasMany(models.Product,{
-            as:"products",
-            foreingKey:"id_brand"
+            as:"productos",
+            foreingKey:"id_brand",
         })
     }
+
 
     return Brand;
 }
