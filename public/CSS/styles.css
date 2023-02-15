@@ -6,7 +6,7 @@
 }
 
 *{
-    font-family: "roboto";
+    font-family: 'NovaLight';
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
@@ -21,15 +21,25 @@
 }
 
 .header-superior {
+   /* display: flex;
+   position: relative;*/
+   background-color: var(--Verde-claro);
     display: flex;
-    background-color: var(--Verde-claro);
-    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 10px;
+    max-width: 1200px;
+    text-align: center;
+    margin:auto
 }
 
 header {
-    position: sticky;
-    top: 0px;
+    /*position: sticky;
+    top: 0px;*/
     background-color: var(--Verde-claro);
+    padding: 20px;
+    width: 100vw;
+    margin: auto;
 }
 
 .logo {
@@ -59,9 +69,17 @@ header {
     background-color: var(--verde);
 }
 .hamburguesa {
-    font-size: 8vw;
+    /*font-size: 8vw;
     padding: 2%;
-    background-color: var(--verde);
+    background-color: var(--verde);*/
+    text-align: center;
+    color: white;
+    background-color: #141413;
+    border-radius: 6px;
+    padding: 8px;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 24px;
 }
 
 .barra-busqueda {
@@ -85,27 +103,45 @@ header {
 }
 
 .banner {
-    width: 100vw;
+    width: 100%;
+    height: 25em;
 }
 
 .Producto {
-    display: flex;
+    /*display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     border: solid var(--gris-claro) 1px;
     margin: 0% 5%;
-    border-radius: 10px;
+    border-radius: 10px;*/
+    display: block;
+    background-color: rgb(243, 246, 243);
+    width: 100%;
+    border: solid 1px #231919;
+    margin: auto;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    transition: all 450ms;
+    
+
 }
 
 .img-producto{
-    width: 40%;
+    width: 25%;
     border-radius: 10px;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    transition: all 450ms;
+    border-radius: 5px;
+    background-color: rgb(189, 237, 179);
 }
 
 .Detalle-producto {
     width: 60%;
     display: flex;
     flex-wrap: wrap;
+    transition: all 450ms;
 }
 
 .nombre-producto {
@@ -115,18 +151,23 @@ header {
 }
 
 .precio {
-    font-size: 2em;
-    margin-left: 1vw;
+    /*font-size: 2em;
+    margin-left: 1vw;*/
+    width: 60%;
+    margin-left: 0;
+    padding-left: 5px;
+    font-size: 24px;
+    align-self: center;
 }
 
 .categorias-container{
     margin: auto;
-    display: grid;
-    gap: 1.5rem;
-    width: 85%;
+    display: flex;
+    gap: 1rem;
+    width: 65%;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 5vh;
-}
+}  
 
 .categoria{
     display: flex;
@@ -149,18 +190,21 @@ header {
 
 .titulo{
     font-size: 1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Playfair Display', serif;
     color: #219267;
     text-align: center;
     padding: 10px;
     border: solid 2px #174d39;
     margin: 10px;
+    
 }
 .formulario{
+    
+    padding: 20px 15px;
     background-color: #dff3e3;
-    margin: 20px;
-    border: 20px;
-    padding: 20px;
+    text-align: left;
+    color: rgb(5, 97, 25);
+    font-family: 'Playfair Display', serif;
 }
 .campo {
     padding: 2px;
@@ -183,12 +227,29 @@ header {
 .crear{
     text-align: right;
     margin-top: 10px;
+    width: 80%;
+    border: none;
+    font-size: 20px;
+    color:#ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: all 450ms 
 }
 .crear button{
-    background-color: #174d39;
+    /*background-color: #174d39;
     color: #dff3e3;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 10px;*/
+    width: 40%;
+    background-color: #a6a597;
+    border: none;
+    font-size: 20px;
+    color:#ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: all 450ms;
 }
 
 footer {
@@ -206,6 +267,10 @@ footer ul li{
 footer ul li a{
     text-decoration: none;
     color: black;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    font-weight: bold;
 }
 
 .redes-container{
@@ -236,6 +301,8 @@ footer ul li a{
 }
 .descripcionProducto{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+    padding: 0 15px 0 15px;
 }
 .precioProducto{
     font-size: 50px;
@@ -340,4 +407,5 @@ header section{
     background-color: #219267;
     box-shadow: 5px 5px 3px 3px rgba(53,53,53,0.89);
 }
+
 }
