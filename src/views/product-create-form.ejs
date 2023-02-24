@@ -23,8 +23,14 @@
 						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
-						<label for="brand" class="form-label">Marca del producto:</label>
-						<input type="text" id="brand" name="brand" placeholder="1" class="form-input">
+						<label for="brand" class="form-label">Marca de producto:</label>
+						<select name="brand" id="brand" class="form-input">
+							<% for (let i = 0; i< brands.length;i++) { %>
+								<option value="<%=brands[i].id_brand%>">
+									<%=brands[i].name%>
+								</option>
+								<% } %>
+						</select>
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="discount" class="form-label">Descuento:</label>
@@ -34,7 +40,7 @@
 						<label for="category" class="form-label">Categoría:</label>
 						<select name="category" id="category" class="form-input">
 							<% for (let i = 0; i< categories.length;i++) { %>
-								<option value="<%=categories[i].id_category%>">
+								<option value="<%=categories[i].idcategory%>">
 									<%=categories[i].name%>
 								</option>
 								<% } %>

@@ -36,11 +36,11 @@ module.exports = (sequelize, dataTypes) =>{
 
     Product.associate = function(models){
         Product.belongsTo(models.Category,{
-            as:"category",
+            as:"Category",
             foreingKey:"id_category",
         })
         Product.belongsTo(models.Brand,{
-            as:"brand",
+            as:"Brand",
             foreingKey:"id_brand",
         })
     }

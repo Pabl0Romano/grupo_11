@@ -3,6 +3,7 @@ const fs = require('fs');
 const { get } = require('http');
 const path = require('path');
 const db = require("../database/models");
+const op = db.sequelize.op
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
@@ -28,20 +29,27 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		db.Category.findAll()
-			.then(function(categories){
-				return res.render('product-create-form',{categories:categories})
-			})
+		let brands = db.Brand.findAll()
+		let categories = db.Category.findAll()
+		Promise.all([brands, categories])
+		.then(([brands, categories]) => {
+			return res.render('product-create-form', {brands: brands, categories: categories});
+		})
+	// 	db.Category.findAll()
+	// 		.then(function(categories){
+	// 			return res.render('product-create-form',{categories:categories,brands:brands})
+	// 		})
 	},
 
 	store: (req, res) => {
-		db.Product.create({
-			  name: req.body.name,
-			  description: req.body.description,
-			  price: req.body.price,
-			  id_category: req.body.category,
-			  id_brand:req.body.brand
-		});
+				db.Product.create({
+					name: req.body.name,
+					description: req.body.description,
+					price: req.body.price,
+					id_category: req.body.category,
+					id_brand:req.body.brand
+			  });
+		
 		res.redirect('/products');
     },
 	// Update - Form to edit
