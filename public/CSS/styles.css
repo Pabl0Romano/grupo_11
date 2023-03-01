@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 :root{
     --Verde-claro: #dff3e3;
     --verde-oscuro: #174d39;
@@ -6,10 +7,14 @@
 }
 
 *{
-    font-family: 'NovaLight';
+    font-family: 'Tilt Neon', cursive;
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
+}
+
+body {
+    background-color: var(--Verde-claro);
 }
 
 .barra-menues{
@@ -18,11 +23,10 @@
 
 .envios-pais{
     display: none;
+    text-align: center;
 }
 
 .header-superior {
-   /* display: flex;
-   position: relative;*/
    background-color: var(--Verde-claro);
     display: flex;
     flex-wrap: wrap;
@@ -107,69 +111,58 @@ header {
     height: 25em;
 }
 
-.Producto {
-    /*display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    border: solid var(--gris-claro) 1px;
-    margin: 0% 5%;
-    border-radius: 10px;*/
-    display: block;
-    background-color: rgb(243, 246, 243);
-    width: 100%;
-    border: solid 1px #231919;
+.Productos-Destacados {
+    width: 65vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
     margin: auto;
-    margin-bottom: 25px;
-    border-radius: 15px;
-    transition: all 450ms;
-    
+    margin-bottom: 8vh;
+}
 
+.Producto {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    background-color: white;
+    border-radius: 10px;
+    border: solid var(--gris-claro) 1px;
 }
 
 .img-producto{
-    width: 25%;
+    width: 100%;
+    max-height: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
     border-radius: 10px;
-    display: flex!important;
-    align-items: center;
-    justify-content: center;
-    transition: all 450ms;
-    border-radius: 5px;
-    background-color: rgb(189, 237, 179);
 }
 
 .Detalle-producto {
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    transition: all 450ms;
-}
-
-.nombre-producto {
-    font-size: 1.5em;
-    align-self: center;
-    margin-left: 1vw;
+    grid-column-start: 3;
+    text-align: center;
+    height: 50%;
+    margin: auto;
+    border-left: solid var(--gris-claro) 1px;
 }
 
 .precio {
-    /*font-size: 2em;
-    margin-left: 1vw;*/
-    width: 60%;
-    margin-left: 0;
-    padding-left: 5px;
-    font-size: 24px;
-    align-self: center;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+    font-size: 1.5rem;
+    padding-top: 1rem;
 }
 
 .categorias-container{
     margin: auto;
-    display: flex;
+    display: grid;
     gap: 1rem;
-    width: 65%;
-    grid-template-columns: 1fr 1fr;
+    width:60vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-bottom: 5vh;
 }  
 
 .categoria{
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -177,6 +170,11 @@ header {
     padding-bottom: 5%;
     border: solid var(--gris-claro) 1px;
     border-radius: 10px;
+}
+
+.categoria:hover i {
+    transform: scale(1.4);
+    color: var(--verde);
 }
 
 .categoria i{
@@ -190,14 +188,13 @@ header {
 
 .titulo{
     font-size: 1rem;
-    font-family: 'Playfair Display', serif;
     color: #219267;
     text-align: center;
     padding: 10px;
     border: solid 2px #174d39;
     margin: 10px;
-    
 }
+
 .formulario{
     
     padding: 20px 15px;
@@ -256,12 +253,30 @@ footer {
     background-color:var(--Verde-claro) ;
 }
 
+footer ul {
+    display: flex;
+    width: 65vw;
+    margin: auto;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
 footer p{
     font-size: 12px;
 }
 
 footer ul li{
     border: solid #174d39 1px;
+    padding: 0.5rem;
+    list-style-type: none;
+    text-align: center;
+    width: 25%;
+ }
+
+ footer ul :hover{
+    transform: scale(1.2);
+    background-color: var(--verde);
+    /* transition: all 1s; */
  }
 
 footer ul li a{
@@ -277,24 +292,21 @@ footer ul li a{
     display: flex;
     font-size: 30px;
     justify-content: space-between;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    padding-top: 2rem;
 }
 
 .redes-container i{
     color: black;
+    font-size: 4rem;
 }
 
-.producto{
-    background-color: #dff3e3;
-    margin: 20px;
-    padding: 20px;
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 2rem;
-    border-bottom: solid #174d39 2px;
+.redes-container :hover {
+    color: var(--verde-oscuro);
+    transform:scale(1.2);
 }
+
 .imagenProducto{
     width: 20%;
     border-radius: 10%;
@@ -373,6 +385,9 @@ header section{
 .vinculos a{
     text-decoration: none;
     color: black;
+}
+.vinculos :hover li {
+    color: var(--verde);
 }
 .titulo{
     width: 70%;
