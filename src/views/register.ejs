@@ -7,12 +7,12 @@
         <section class="titulo">
             <h2>CREÁ TU CUENTA</h2>
         </section>
-        <form action="/user/register" method="POST" enctype="multipart/form-data"> 
+        <form class="registro" action="/user/register" method="POST" enctype="multipart/form-data"> 
             <section class="formulario">
                 <article class="datos">
                     <p class="campo">
                         <label for="nombre">Nombre*</label>
-                        <input type="text" name="nombre" id="nombre">
+                        <input type="text" name="nombre" id="nombre" class="nombre">
                     </p>
                     <% if (locals && locals.mensajesDeError){ %>
                         <% for (let error in mensajesDeError){ %>
@@ -21,23 +21,23 @@
                     <% } %>
                     <p class="campo">
                         <label for="apellido">Apellido*</label>
-                        <input type="text" name="apellido" id="apellido">
+                        <input type="text" name="apellido" id="apellido" class="apellido">
                     </p>          
                     <p class="campo">
                         <label for="email">Email*</label>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" class="email">
                     </p>
                     <p class="campo">
                         <label for="telefono">Teléfono</label>
-                        <input type="number" name="telefono" id="telefono">
+                        <input type="number" name="telefono" id="telefono" class="telefono">
                     </p>
                     <p class="campo">
                         <label for="contrasenia">Contraseña*</label>
-                        <input type="password" name="contrasenia" id="contraseña">
+                        <input type="password" name="contrasenia" id="contraseña" class="password">
                     </p>
                     <p class="campo">
                         <label for="contraseñaagain">Confirmar contraseña*</label>
-                        <input type="password" name="contraseñaagain" id="contraseñaagain">
+                        <input type="password" name="contraseñaagain" id="contraseñaagain" class="passwordagain">
                     </p>
                     <h3 class="obligatorio">*Campos obligatorios</h3>
                 </article>
@@ -48,7 +48,7 @@
                 <div class="crear">
                     <button type="submit">CREAR CUENTA</button>
                 </div>
-                <p class="irlogin">¿Ya tenés cuenta?<a href="/login">Iniciar sesión</a></p>
+                <p class="irlogin">¿Ya tenés cuenta?<a href="/user/login">Iniciar sesión</a></p>
             </section>
         </form>
     </main>

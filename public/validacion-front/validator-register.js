@@ -157,5 +157,20 @@ window.onload=function(){
       
       
       
-  }   
+  } 
+
+  /*window.addEventListener("load", function(){
+
+    let formulario = document.querySelector("form.registro")
+  
+    formulario.addEventListener("submit", function(e){
+      e.preventDefault();
+  
+      let campoNombre= document.querySelector("input.nombre")
+  
+      if (campoNombre.value == ""){
+        alert ("El campo de nombre debe estar completo")
+      }
+    } )
+  })*/
   module.export = validator-register
