@@ -1,9 +1,9 @@
 module.exports = (sequelize, dataTypes) =>{
 
-    let alias = "Brand";
+    let alias = "Brands";
 
     let cols = {
-        id_brand: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true
         },
@@ -21,9 +21,9 @@ module.exports = (sequelize, dataTypes) =>{
     const Brand = sequelize.define(alias,cols,config);
 
     Brand.associate = function(models){
-        Brand.hasMany(models.Product,{
-            as:"Product",
-            foreingKey:"id_brand",
+        Brand.hasMany(models.Products,{
+            as:"product",
+            foreingKey:"id_brand"
         })
     }
 

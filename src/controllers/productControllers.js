@@ -20,16 +20,25 @@ const controller = {
 	},
 
 	listado: (req,res) => {
-		db.Product.findAll()
-			.then(function(productos){
-				console.log(productos);
-				res.render("listado-productos",{productos:productos})
-			})
+		// let brands = db.Brand.findAll()
+		// Promise.all([products,brands])
+		// .then(([products,brands]) => {
+		// 	return res.render("listado-productos",{products:products,brands:brands})
+		// })
+		db.Products.findByPk(18)
+			.then(function(producto){
+				console.log(producto);
+			});
+		// db.Products.findAll()
+		// 	.then(function(productos){
+		// 		console.log(productos);
+		// 		res.render("listado-productos",{productos:productos})
+		// 	})
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
-		let brands = db.Brand.findAll()
+		let brands = db.Brands.findAll()
 		let categories = db.Category.findAll()
 		Promise.all([brands, categories])
 		.then(([brands, categories]) => {
