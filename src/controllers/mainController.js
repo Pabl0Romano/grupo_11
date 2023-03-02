@@ -9,7 +9,16 @@ const controller = {
 	},	
 	search: (req, res) => {
 
-}
+	},
+	contact: (req, res) => {
+		res.render('contacto')
+
+	},
+	history: (req, res) => {
+		res.render('historia')
+
+	}
+
 }
 module.exports = controller;
 
