@@ -18,10 +18,10 @@ const controller = {
     },
 
     processRegister: (req,res)=>{
-        let errores = validationResult(req);
-        if(!errores.isEmpty()){
-            return res.render("register",{mensajesDeError: errores.mapped()})
-        }
+        // let errores = validationResult(req);
+        // if(!errores.isEmpty()){
+        //     return res.render("register",{mensajesDeError: errores.mapped()})
+        // }
         
         let newuser = db.Users.create({
             first_name: req.body.nombre,
@@ -29,7 +29,7 @@ const controller = {
             email: req.body.email,
             password: req.body.contrasenia,
             phone_number: req.body.telefono,
-            id_city: "1"
+            cities_id: "1"
       });
 
 		res.redirect('/');

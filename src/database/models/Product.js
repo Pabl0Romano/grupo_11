@@ -65,11 +65,11 @@ module.exports = (sequelize, dataTypes) =>{
     product.associate = function(models){
         product.belongsTo(models.categories,{
             as:"category",
-            foreingKey:"categories_id",
+            foreingKey:"category_id",
         })
         product.belongsTo(models.brand,{
             as:"brand",
-            foreingKey:"brands_id"
+            foreingKey:"brand_id"
         })
     }
 

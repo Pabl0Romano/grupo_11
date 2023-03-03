@@ -11,8 +11,12 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 
 	detail: (req, res) => {
-		let product = products.find(product=>product.id == req.params.id);
-		res.render('detail', {product})
+		let productos = db.product.findAll();
+		let productoEnDetalle = db.product.findByPk(req.params.id);
+		Promise.all([productos, productoEnDetalle])
+		.then(([products, productoEncontrado]) => {
+			res.render('detail', {productoEncontrado: productoEncontrado, productos: products});
+		})
 	},
 
 	index: (req,res) => {
@@ -20,15 +24,6 @@ const controller = {
 	},
 
 	listado: (req,res) => {
-		// let brands = db.Brand.findAll()
-		// Promise.all([products,brands])
-		// .then(([products,brands]) => {
-		// 	return res.render("listado-productos",{products:products,brands:brands})
-		// })
-		// db.Products.findByPk(18)
-		// 	.then(function(producto){
-		// 		console.log(producto);
-		// 	});
 		db.product.findAll()
 			.then(function(productos){
 				res.render("listado-productos",{productos:productos})
@@ -43,10 +38,7 @@ const controller = {
 		.then(([brands, categories]) => {
 			return res.render('product-create-form', {brands: brands, categories: categories});
 		})
-	// 	db.Category.findAll()
-	// 		.then(function(categories){
-	// 			return res.render('product-create-form',{categories:categories,brands:brands})
-	// 		})
+
 	},
 
 	store: (req, res) => {
@@ -54,8 +46,8 @@ const controller = {
 					name: req.body.name,
 					description: req.body.description,
 					price: req.body.price,
-					categories_id: req.body.category,
-					brands_id: req.body.brand
+					category_id: req.body.category,
+					brand_id: req.body.brand
 			  });
 		
 		res.redirect('/products');

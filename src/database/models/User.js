@@ -2,7 +2,7 @@ module.exports = (sequelize,dataTypes) =>{
     let alias = "Users";
 
     let cols = {
-        id_user: {
+        id: {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
@@ -28,21 +28,24 @@ module.exports = (sequelize,dataTypes) =>{
         direccion: {
             type: dataTypes.STRING
         },
-        id_city: {
+        cities_id: {
             type: dataTypes.INTEGER,
-            references: {
-                model: "City",
-                key: "id_city"
-            }
         }
     }
 
     let config = {
         tableName: "users",
-        timestamps: false
+        timestamps: false,
+        underscored: true
     }
 
     const User = sequelize.define(alias,cols,config);
 
+    User.associate = function(models){
+        User.belongsTo(models.Cities,{
+            as:"Ciudad",
+            foreingKey:"cities_id",
+        })
+    }
     return User;
 }
