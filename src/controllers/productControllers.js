@@ -25,21 +25,20 @@ const controller = {
 		// .then(([products,brands]) => {
 		// 	return res.render("listado-productos",{products:products,brands:brands})
 		// })
-		db.Products.findByPk(18)
-			.then(function(producto){
-				console.log(producto);
-			});
-		// db.Products.findAll()
-		// 	.then(function(productos){
-		// 		console.log(productos);
-		// 		res.render("listado-productos",{productos:productos})
-		// 	})
+		// db.Products.findByPk(18)
+		// 	.then(function(producto){
+		// 		console.log(producto);
+		// 	});
+		db.product.findAll()
+			.then(function(productos){
+				res.render("listado-productos",{productos:productos})
+			})
 	},
 
 	// Create - Form to create
 	create: (req, res) => {
-		let brands = db.Brands.findAll()
-		let categories = db.Category.findAll()
+		let brands = db.brand.findAll()
+		let categories = db.categories.findAll()
 		Promise.all([brands, categories])
 		.then(([brands, categories]) => {
 			return res.render('product-create-form', {brands: brands, categories: categories});
@@ -51,12 +50,12 @@ const controller = {
 	},
 
 	store: (req, res) => {
-				db.Product.create({
+				db.product.create({
 					name: req.body.name,
 					description: req.body.description,
 					price: req.body.price,
-					id_category: req.body.category,
-					id_brand:req.body.brand
+					categories_id: req.body.category,
+					brands_id: req.body.brand
 			  });
 		
 		res.redirect('/products');

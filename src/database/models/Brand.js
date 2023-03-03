@@ -1,32 +1,38 @@
 module.exports = (sequelize, dataTypes) =>{
 
-    let alias = "Brands";
-
-    let cols = {
-        id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true
-        },
+    const brand = sequelize.define('brand',{
         name: {
-            type: dataTypes.STRING
-        }
-    }
+                    type: dataTypes.STRING
+                },
+    });
 
-    let config = {
-        tableName: "brands",
-        timestamps: false,
-        underscored: true,
-    }
-
-    const Brand = sequelize.define(alias,cols,config);
-
-    Brand.associate = function(models){
-        Brand.hasMany(models.Products,{
-            as:"product",
-            foreingKey:"id_brand"
-        })
-    }
+    brand.associate = (models => {
+        brand.hasMany(models.Product,{as:'productos'})
+    })
 
 
-    return Brand;
+    // let alias = "brand";
+
+    // let cols = {
+    //     name: {
+    //         type: dataTypes.STRING
+    //     }
+    // }
+
+    // let config = {
+    //     tableName: "brands",
+    //     timestamps: false,
+    //     underscored: true,
+    // }
+
+    // const Brand = sequelize.define(alias,cols,config);
+
+    // Brand.associate = function(models){
+    //     Brand.hasMany(models.product,{
+    //         as:"product",
+    //     })
+    // }
+
+
+    return brand;
 }

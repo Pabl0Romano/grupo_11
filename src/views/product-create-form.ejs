@@ -26,7 +26,7 @@
 						<label for="brand" class="form-label">Marca de producto:</label>
 						<select name="brand" id="brand" class="form-input">
 							<% for (let i = 0; i< brands.length;i++) { %>
-								<option value="<%=brands[i].id_brand%>">
+								<option value="<%=brands[i].id%>">
 									<%=brands[i].name%>
 								</option>
 								<% } %>
@@ -40,7 +40,7 @@
 						<label for="category" class="form-label">Categoría:</label>
 						<select name="category" id="category" class="form-input">
 							<% for (let i = 0; i< categories.length;i++) { %>
-								<option value="<%=categories[i].idcategory%>">
+								<option value="<%=categories[i].id%>">
 									<%=categories[i].name%>
 								</option>
 								<% } %>
