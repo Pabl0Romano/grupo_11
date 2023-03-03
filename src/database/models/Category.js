@@ -1,36 +1,36 @@
 module.exports = (sequelize, dataTypes) =>{
 
-    const category = sequelize.define('category',{
-                name: {
-                    type: dataTypes.STRING
-                },
-    });
+    // const category = sequelize.define('category',{
+    //             name: {
+    //                 type: dataTypes.STRING
+    //             },
+    // });
 
-    category.associate = (models => {
-        category.hasMany(models.Product,{as:'productos'})
-    })
+    // category.associate = (models => {
+    //     category.hasMany(models.Product,{as:'productos'})
+    // })
 
-    // let alias = "categories"
+    let alias = "categories"
 
-    // let cols = {
-    //     name: {
-    //         type: dataTypes.STRING
-    //     }
-    // }
+    let cols = {
+        name: {
+            type: dataTypes.STRING
+        }
+    }
 
-    // let config = {
-    //     tableName: "categories",
-    //     timestamps: false,
-    //     underscored: true,
-    // }
+    let config = {
+        tableName: "categories",
+        timestamps: false,
+        underscored: true,
+    }
 
-    // const Category = sequelize.define(alias,cols,config);
+    const category = sequelize.define(alias,cols,config);
 
-    // Category.associate = function(models){
-    //     Category.hasMany(models.product,{
-    //         as:"product",
-    //     })
-    // }
+    category.associate = function(models){
+        category.hasMany(models.product,{
+            as:"product",
+        })
+    }
 
     return category;
 }
