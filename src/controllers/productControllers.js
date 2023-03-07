@@ -54,37 +54,36 @@ const controller = {
     },
 	// Update - Form to edit
 	edit: (req, res) => {
-		db.Product.findAll({model:db.Category, as:"Category"})
-			.then(function(productos){
-				res.render("product-edit-form",{productos:productos})
+		db.product.findByPk(req.params.id)
+			.then(function(product){
+				res.render("product-edit-form",{product:product})
 			})
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		let productEdit = products.find(product => product.id == req.params.id)
-		let addProduct = {
-			"id": productEdit.id,
-			"name": req.body.name,
-			"price": req.body.price,
-			"discount": req.body.discount,
-			"category": req.body.category,
-			"description": req.body.description,
-		};
-		
-		products.splice(addProduct.id-1,1,addProduct)
-		
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ""));
-		
-		res.redirect("/");
+		db.product.update ({
+			name: req.body.name,
+			description: req.body.description,
+			price: req.body.price,
+		}, {
+			where: {
+				id: req.params.id
+			}
+		})
+		res.redirect("/products/listado");
 
 	},
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		let productDestroy = products.find(product => product.id == req.params.id)
-		products.splice(productDestroy.id-1,1)
-		res.redirect("/")
+		db.product.destroy({
+			where: {
+				id: req.params.id
+			}
+		})
+		res.redirect("/products/listado")
 	}
 };
+
 module.exports = controller
 
 

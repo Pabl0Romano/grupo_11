@@ -25,7 +25,7 @@ router.get("/:id",productControllers.detail);
 router.post("/create",productControllers.store);
 router.get("/:id/edit",productControllers.edit);
 router.put("/:id/edit",productControllers.update);
-router.delete("/:id",productControllers.destroy);
+router.post("/delete/:id",productControllers.destroy);
 
 /*router.post('/create', uploadFile.single('imagen'), productControllers.store);
 router.get('/carrito/', productControllers.carrito);*/
