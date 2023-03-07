@@ -24,8 +24,28 @@ body {
 .envios-pais{
     display: none;
     text-align: center;
+    padding: 10%;
 }
-
+.envio_text {
+    text-decoration: none;
+    color: #141413;
+}
+.texto-envio{
+    width: 70vw;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 7vh;
+}
+.texto{
+    padding: 4vh;
+    color: var(--verde-oscuro);
+}
+.texto{
+    color: #141413;
+}
+.preguntas{
+    color: #141413;
+}
 .header-superior {
    background-color: var(--Verde-claro);
     display: flex;
@@ -187,7 +207,7 @@ header {
 /*ESTILOS DEL FORMULARIO DE REGISTRO*/
 
 .titulo{
-    font-size: 1rem;
+    font-size: 2rem;
     color: #219267;
     text-align: center;
     padding: 10px;
@@ -399,6 +419,27 @@ footer ul li a{
     margin: auto;
     border-left: solid var(--gris-claro) 1px;
 }
+.tarjeta{
+    width: 100%;
+    max-height: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 10px;
+    padding: 2rem;
+}
+.ayuda {
+    color: black;
+    padding: 2rem;
+    font-size: 2rem;
+}
+.ayudaa{
+    color: #174d39;
+    padding: 1rem;
+}
+
+
+
+
 /*Port a dekstop*/
 /*HOME*/
 @media (min-width: 925px) {

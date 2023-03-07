@@ -17,6 +17,24 @@ const controller = {
 	history: (req, res) => {
 		res.render('historia')
 
+	},
+	envio: (req, res) => {
+		res.render('envio')
+	},
+	preguntas: (req, res) => {
+		res.render('preguntas')
+	},
+	regalo: (req, res) => {
+		res.render('regalo')
+	},
+	categorias: (req, res) => {
+		res.render('categorias')
+	},
+	destacados: (req, res) => {
+		res.render('productos-destacados')
+	},
+	ayuda: (req, res) => {
+		res.render('ayuda')
 	}
 
 }

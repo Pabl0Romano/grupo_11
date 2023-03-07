@@ -6,13 +6,15 @@
 <body>
 	<%- include('./partials/header') %>
 
+    <h2 class="titulo">Productos Destacados</h2>
+
     <% for(let i = 0; i< productos.length;i++) { %>
-        <section class="lista de productos">
-            <img class=productos src="" alt="imagen">
-            <article class="descripcion prod.">
-            <p class="fas fa-truck"></p>
-            <p class="precios">$<%=productos[i].price %><i class="descuentos">20% off</i></p>
-            <p class="descripciones"><strong><%= productos[i].name %></strong></p>
+        <section class="Producto">
+            <img class="img-producto" src="" alt="imagen">
+            <article class="Detalle-producto">
+                <p class="fas fa-truck"></p>
+                <p class="nombre-producto"><strong><%= productos[i].name %></strong></p>
+                <p class="precio">$<%=productos[i].price %><i class="descuentos">20% off</i></p>
             </article>
         </section>
     <% } %>
