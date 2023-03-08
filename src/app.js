@@ -4,6 +4,7 @@ const path = require('path');
 const index = require("./routes/mainRouter")
 const productRouter = require("./routes/productRouter")
 const usersRouter = require("./routes/usersRouter")
+const apiRouter = require("./routes/apiRouter")
 const methodOverride = require("method-override");
 
 let PORT = process.env.PORT || 3000
@@ -24,6 +25,7 @@ app.listen(3000,()=>{
 app.use("/",index);
 app.use("/products",productRouter);
 app.use("/user",usersRouter)
+app.use("/API",apiRouter)
 
 
 

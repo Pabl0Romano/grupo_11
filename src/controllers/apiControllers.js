@@ -1,9 +1,9 @@
-/*const db = require('../database/models');
+const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 module.exports = {
     productsList: (req, res) => {
-        db.Productos.findAll()
+        db.product.findAll()
         .then(products => {
             return res.status(200).json({
                 total: products.length,
@@ -13,7 +13,7 @@ module.exports = {
         })
         },
     productsShow: (req, res) => {
-        db.Productos.findByPk(req.params.id)
+        db.product.findByPk(req.params.id)
         .then(products => {
             return res.status(200).json({
                 data: products,
@@ -22,7 +22,7 @@ module.exports = {
         })
     },
     categoryList: (req, res) => {
-        db.Categorias.findAll()
+        db.categories.findAll()
         .then(category => {
             return res.status(200).json({
                 total: category.length,
@@ -31,21 +31,21 @@ module.exports = {
                 })
         })
         },
-    productsSearch: (req, res) => {
-        db.Productos.findAll({
-            where: {
-                nombre: {[Op.like]: '%' + req.query.keyword + '%'}
-            }
-        })
-        .then(products => {
-            if (products.length > 0){
-                return res.status(200).json(products)
-            }
-            return res.status(200).json('No existen productos')
-            })
-        },
+    // productsSearch: (req, res) => {
+    //     db.Productos.findAll({
+    //         where: {
+    //             nombre: {[Op.like]: '%' + req.query.keyword + '%'}
+    //         }
+    //     })
+    //     .then(products => {
+    //         if (products.length > 0){
+    //             return res.status(200).json(products)
+    //         }
+    //         return res.status(200).json('No existen productos')
+    //         })
+    //     },
     usersList: (req, res) => {
-            db.Usuarios.findAll()
+            db.Users.findAll()
             .then(users => {
                 return res.status(200).json({
                     total: users.length,
@@ -55,7 +55,7 @@ module.exports = {
             })
         },
     usersShow: (req, res) => {
-        db.Usuarios.findByPk(req.params.id)
+        db.Users.findByPk(req.params.id)
         .then(users => {
             return res.status(200).json({
                 data: users,
@@ -63,4 +63,4 @@ module.exports = {
                 })
         })
     }
-}*/
+}

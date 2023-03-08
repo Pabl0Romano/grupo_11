@@ -15,4 +15,5 @@ router.get('/regalo', mainController.regalo);
 router.get('/categorias', mainController.categorias);
 router.get('/productos-destacados', mainController.destacados);
 router.get('/ayuda', mainController.ayuda);
+
 module.exports = router;
