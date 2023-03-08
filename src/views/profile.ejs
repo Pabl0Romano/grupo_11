@@ -7,17 +7,18 @@
 
     <%- include('./partials/header') %>
     
+    <h2 class="titulo">Mi Perfil</h2>
         <section class="formulario">
             <article class="datos">
-                <p class="campo">Nombre</p><%= user.firstName %>
+                <p class="campo-perfil">Nombre</p><%= user.first_name %>
                 <br>
-                <p class="campo">Apellido</p><%= user.lastName %>    
+                <p class="campo-perfil">Apellido</p><%= user.last_name %>    
                 <br>
-                <p class="campo">Email</p><%= user.email %>
+                <p class="campo-perfil">Email</p><%= user.email %>
                 <br>
-                <p class="campo">Teléfono</p><%= user.telefono %>
+                <p class="campo-perfil">Teléfono</p><%= user.phone_number %>
                 <br>
-                <p class="campo">Imagen de Perfil</p><img src="../../public/images/users/<%=user.image%>" alt="imagen de usuario">
+                <p class="campo-perfil">Imagen de Perfil</p><img src="../../public/images/users/<%=user.image%>" alt="imagen de usuario">
             </article>
         </section>    
     

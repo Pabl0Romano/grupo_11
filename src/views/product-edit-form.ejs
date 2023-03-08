@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Editando: ' + product.name}) %>
+<%- include('./partials/head') %>
 <body>
-
+	<%- include('./partials/header') %>
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Estás editando: <i><%= product.name %> </i></h2>
+				<h2 class="titulo">Estás editando: <i><%= product.name %> </i></h2>
 			</div>
 		</div>
-		<div class="col-12">
-			<form action="/products/<%= product.id  %>/edit/?_method=put " method="POST">
-				<div class="row product-detail">
-					<div class="col-12 col-md-6">
-						<label for="name" class="form-label">Nombre del producto:</label>
+		<div >
+			<form class= "register" action="/products/<%= product.id  %>/edit/?_method=put " method="POST">
+				<div class="formulario">
+					<div class="campo">
+						<label for="name" >Nombre del producto:</label>
 						<input type="text" id="name" name="name" placeholder="<%= product.name %> " class="form-input">
 					</div>
-					<div class="col-12 col-md-6">
-						<label for="price" class="form-label">Precio del producto:</label>
+					<div class="campo">
+						<label for="price" >Precio del producto:</label>
 						<input type="text" id="price" name="price" placeholder="<%= product.price %>" class="form-input">
 					</div>
-					<div class="col-12 col-md-6">
-						<label for="discount" class="form-label">Descuento:</label>
+					<div class="campo">
+						<label for="discount" >Descuento:</label>
 						<input type="text" id="discount" name="discount" placeholder="<%= product.discount %>" class="form-input">
 					</div>
-					<div class="col-12">
-						<label for="description" class="form-label">Descipción:</label>
+					<div class="campo">
+						<label for="description" >Descripción:</label>
 						<textarea name="description" id="description" class="form-input"><%= product.description %></textarea>
 					</div>
-					<div class="col-12">
+					<div class="crear">
 						<button type="submit" class="buy-now-button">Guardar producto</button>
 					</div>
+					<form class= "formulario" action="/products/delete/<%= product.id  %>" method="POST">
+						<div class="crear">
+							<button type="submit" class="buy-now-button">Borrar producto</button>
+						</div>
+					</form>
 				</div>
 			</form>
-			<form action="/products/delete/<%= product.id  %>" method="POST">
-				<div class="col-12">
-					<button type="submit" class="buy-now-button">Borrar producto</button>
-				</div>
-			</form>
+			
 		</div>
 	</div>
 	<!-- /todos los productos -->

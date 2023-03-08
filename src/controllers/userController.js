@@ -37,8 +37,10 @@ const controller = {
     },
 
     profile: (req,res) =>{
-        let user = users.find(users=>users.id == req.params.id);
-        res.render("profile",{user})
+        db.Users.findByPk(req.params.id)
+			.then(function(user){
+				res.render("profile",{user:user})
+			})
     },
 
     loginProcess: (req, res) => {

@@ -29,11 +29,11 @@ module.exports = (sequelize, dataTypes) => {
 
     const City = sequelize.define(alias,cols,config);
 
-    City.associate = function(models){
-        City.hasMany(models.Users,{
-            as:"usuario",
-        })
-    }
+    // City.associate = function(models){
+    //     City.hasMany(models.Users,{
+    //         as:"usuario",
+    //     })
+    // }
 
     return City;
 }
