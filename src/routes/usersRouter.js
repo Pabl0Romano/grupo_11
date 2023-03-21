@@ -30,29 +30,29 @@ const validaciones = [
 //Aquí ejecuto mis validaciones
 const validacionesLogin = [
     body('email').isEmail().withMessage('Agregar un email válido'),
-    body('password').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
-    body('email').custom( (value  ) =>{
-      for (let i = 0; i < archivoUsuarios.length; i++) {
-          if (archivoUsuarios[i].email == value) {
-              return true    
-          }
-      }
-      return false
-    }).withMessage('Usuario no se encuentra registrado...'),
+    body('contrasenia').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
+    // body('email').custom( (value  ) =>{
+    //   for (let i = 0; i < archivoUsuarios.length; i++) {
+    //       if (archivoUsuarios[i].email == value) {
+    //           return true    
+    //       }
+    //   }
+    //   return false
+    // }).withMessage('Usuario no se encuentra registrado...'),
   
     //Aquí valido si la contraseña colocada es la misma a la que tenemos hasheada
-    body('password').custom( (value, {req}) =>{
-        for (let i = 0; i < archivoUsuarios.length; i++) {
-            if (archivoUsuarios[i].email == req.body.email) {
-                if(bcrypt.compareSync(value, archivoUsuarios[i].password)){
-                  return true;
-                }else{
-                  return false;
-                }
-            }
-        }
+    // body('password').custom( (value, {req}) =>{
+    //     for (let i = 0; i < archivoUsuarios.length; i++) {
+    //         if (archivoUsuarios[i].email == req.body.email) {
+    //             if(bcrypt.compareSync(value, archivoUsuarios[i].password)){
+    //               return true;
+    //             }else{
+    //               return false;
+    //             }
+    //         }
+    //     }
         
-    }).withMessage('Usurio o contraseña no coinciden'),
+    // }).withMessage('Usurio o contraseña no coinciden'),
 ]
 
 //Aquí armo las validaciones del Registro
@@ -93,7 +93,7 @@ const validacionesRegistro = [
     ]
 
 router.get("/login",usersController.login);
-router.post("/login",usersController.loginProcess)
+router.post("/login",validacionesLogin,usersController.loginProcess)
 router.get("/register",usersController.register);
 router.post("/register",upload.single("imgperfil"),validaciones,usersController.processRegister);
 router.get("/profile/:id",usersController.profile);

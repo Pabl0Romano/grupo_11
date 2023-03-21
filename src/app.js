@@ -6,6 +6,7 @@ const productRouter = require("./routes/productRouter")
 const usersRouter = require("./routes/usersRouter")
 const apiRouter = require("./routes/apiRouter")
 const methodOverride = require("method-override");
+const session = require("express-session")
 
 let PORT = process.env.PORT || 3000
 
@@ -21,7 +22,7 @@ app.listen(3000,()=>{
     console.log("Servidor funcionando en puerto " + PORT)
 });
 
-
+app.use(session({secret: "Messi > Maradona"}))
 app.use("/",index);
 app.use("/products",productRouter);
 app.use("/user",usersRouter)

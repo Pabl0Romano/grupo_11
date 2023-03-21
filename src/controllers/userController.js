@@ -22,12 +22,12 @@ const controller = {
         // if(!errores.isEmpty()){
         //     return res.render("register",{mensajesDeError: errores.mapped()})
         // }
-        
-        let newuser = db.Users.create({
+        let hash = bcrypt.hashSync(req.body.contrasenia, 10);
+        db.Users.create({
             first_name: req.body.nombre,
             last_name: req.body.apellido,
             email: req.body.email,
-            password: req.body.contrasenia,
+            password: hash,
             phone_number: req.body.telefono,
             cities_id: "1"
       });
@@ -44,20 +44,25 @@ const controller = {
     },
 
     loginProcess: (req, res) => {
-        let ingresante = {
-            email: req.body.email,
-            password: req.body.contrasenia
+        db.Users.findOne({
+            where : {
+                email : req.body.email
+            }
+        })
+        .then(usuario => {
+            console.log(usuario);
+            let comparePassword = bcrypt.compareSync(req.body.contrasenia, usuario.password);
+            if (comparePassword) {
+                req.session.usuarioLogueado = usuario;
+                // if(req.body.remember_user) {
+                //     res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*2})
+                // }
+                return res.redirect('/user/profile/'+usuario.id)
+            } else {
+                return res.send("error");
+            }
         }
-        
-        let user = users.find(users=>users.email == ingresante.email);
-
-        bcrypt.compare(ingresante.password, user.password, function(err, result) {
-        if (user != null && result) {
-            res.render("profile",{user})
-        } else {
-            res.render("login")
-        }
-    })
+    )   
     }
 };
 
