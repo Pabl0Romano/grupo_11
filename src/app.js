@@ -7,6 +7,7 @@ const usersRouter = require("./routes/usersRouter")
 const apiRouter = require("./routes/apiRouter")
 const methodOverride = require("method-override");
 const session = require("express-session")
+const userLoggedMiddleware = require('./middlewares/userloggedMiddlewares');
 
 let PORT = process.env.PORT || 3000
 
@@ -23,6 +24,7 @@ app.listen(3000,()=>{
 });
 
 app.use(session({secret: "Messi > Maradona"}))
+app.use(userLoggedMiddleware);
 app.use("/",index);
 app.use("/products",productRouter);
 app.use("/user",usersRouter)

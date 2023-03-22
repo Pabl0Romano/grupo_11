@@ -92,10 +92,15 @@ const validacionesRegistro = [
       }).withMessage('Debe elegir su avatar y debe ser un archivo con formato: .JPG ó JPEG ó PNG')
     ]
 
-router.get("/login",usersController.login);
+const guestMiddleware = require('../middlewares/guestMiddlewares')
+const authMiddleware = require('../middlewares/authMiddlewares')
+
+
+router.get("/login", guestMiddleware, usersController.login);
 router.post("/login",validacionesLogin,usersController.loginProcess)
-router.get("/register",usersController.register);
+router.get("/register", guestMiddleware, usersController.register);
 router.post("/register",upload.single("imgperfil"),validaciones,usersController.processRegister);
-router.get("/profile/:id",usersController.profile);
+router.get("/profile/:id", authMiddleware, usersController.profile);
+router.get("/logout", usersController.logout);
 
 module.exports = router;
