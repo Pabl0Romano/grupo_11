@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
+const userloggedMiddlewares = require("../middlewares/userloggedMiddlewares")
 
 
 
 const mainController = require('../controllers/mainController');
 
-router.get('/', mainController.index); 
+router.get('/',userloggedMiddlewares, mainController.index); 
 router.get('/search', mainController.search);
 router.get('/contact', mainController.contact);
 router.get('/history', mainController.history);

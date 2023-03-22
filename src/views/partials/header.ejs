@@ -36,11 +36,11 @@
             <a href="/ayuda"><li>Ayuda</li></a>
         </ul>
         <ul class="vinculos">
-            <% if (locals.isLogged) { %>
+            <% if (!locals.isLogged) { %>
                 <a href="/user/login"><li>Inicia sesion</li></a>
                 <a href="/user/register"><li>Regístrate</li></a>
             <% } else { %>
-                <a href="/user/profile/0"><li>Mi Perfil</li></a>
+                <a href="/user/profile/<%= locals.user.id %>"><li>Mi Perfil</li></a>
             <% } %>
         </ul>
     </nav>

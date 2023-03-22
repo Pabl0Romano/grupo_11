@@ -11,6 +11,8 @@ const userLoggedMiddleware = require('./middlewares/userloggedMiddlewares');
 
 let PORT = process.env.PORT || 3000
 
+app.use(session({secret: "Messi > Maradona"}))
+app.use(userLoggedMiddleware);
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
@@ -23,8 +25,7 @@ app.listen(3000,()=>{
     console.log("Servidor funcionando en puerto " + PORT)
 });
 
-app.use(session({secret: "Messi > Maradona"}))
-app.use(userLoggedMiddleware);
+
 app.use("/",index);
 app.use("/products",productRouter);
 app.use("/user",usersRouter)

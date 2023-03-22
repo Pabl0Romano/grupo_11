@@ -20,7 +20,12 @@
                 <br>
                 <p class="campo-perfil">Imagen de Perfil</p><img src="../../public/images/users/<%=user.image%>" alt="imagen de usuario">
             </article>
-        </section>    
+        </section>
+        <form action="/user/logout" method="POST">
+            <div class="crear">
+                <button type="submit">CERRAR SESIÓN</button>
+            </div>
+        </form>    
     
     <%- include('partials/footer') %>
 </body>

@@ -101,6 +101,6 @@ router.post("/login",validacionesLogin,usersController.loginProcess)
 router.get("/register", guestMiddleware, usersController.register);
 router.post("/register",upload.single("imgperfil"),validaciones,usersController.processRegister);
 router.get("/profile/:id", authMiddleware, usersController.profile);
-router.get("/logout", usersController.logout);
+router.post("/logout", usersController.logout);
 
 module.exports = router;
