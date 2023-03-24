@@ -15,10 +15,20 @@
                     <p class="campo">
                         <label for="email">Email*</label>
                         <input type="email" name="email" id="email">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%=errors.email.msg %>
+                            </div>
+                        <% } %>
                     </p>
                     <p class="campo">
                         <label for="contraseña">Contraseña*</label>
                         <input type="password" name="contrasenia" id="contraseña">
+                        <% if (locals.errors && errors.contrasenia) { %>
+                            <div class="text-danger">
+                                <%=errors.contrasenia.msg %>
+                            </div>
+                        <% } %>
                     </p>
                     <h3 class="obligatorio">¿Olvidaste tu contraseña?</h3>
                 </article>

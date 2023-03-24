@@ -51,6 +51,14 @@ const controller = {
     },
 
     loginProcess: (req, res) => {
+        const resultValidation = validationResult(req);
+        
+        if(resultValidation.errors.length > 0){
+            return res.render("login", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
         db.Users.findOne({
             where : {
                 email : req.body.email

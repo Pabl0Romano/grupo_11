@@ -27,8 +27,19 @@ const validaciones = [
         .notEmpty().withMessage("El campo no puede estar vacio").bail()
         .isEmail().withMessage("Debes escribir un correo válido"),
     body("telefono").notEmpty().withMessage("El campo no puede estar vacio"),
-    body("contrasenia").notEmpty().withMessage("El campo no puede estar vacio"),
-    body("contraseñaagain").notEmpty().withMessage("El campo no puede estar vacio"),
+    body("contrasenia")
+        .notEmpty().withMessage("El campo no puede estar vacio").bail()
+        .isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 8 caractéres'),
+    body("contraseniaagain")
+        .notEmpty().withMessage("El campo no puede estar vacio").bail()
+        .isLength({min: 8 }).withMessage('La confirmación de la contraseña debe tener un mínimo de 8 caractéres').bail()
+        .custom((value, {req}) =>{
+            if(req.body.contraseña == value ){
+                return true    // Si yo retorno un true  no se muestra el error     
+            }else{
+                return false   // Si retorno un false si se muestra el error
+            }    
+        }).withMessage('Las contraseñas deben ser iguales'),
     body("imgperfil").custom((value, { req }) =>{
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
@@ -46,8 +57,12 @@ const validaciones = [
 ]
 //Aquí ejecuto mis validaciones
 const validacionesLogin = [
-    body('email').isEmail().withMessage('Agregar un email válido'),
-    body('contrasenia').isLength({min: 6 }).withMessage('La contraseña debe tener un mínimo de 6 caractéres'),
+    body("email")
+        .notEmpty().withMessage("El campo no puede estar vacio").bail()
+        .isEmail().withMessage("Debes escribir un correo válido"),
+    body("contrasenia")
+        .notEmpty().withMessage("El campo no puede estar vacio").bail()
+        .isLength({min: 8 }).withMessage('La contraseña debe tener un mínimo de 8 caractéres'),
     // body('email').custom( (value  ) =>{
     //   for (let i = 0; i < archivoUsuarios.length; i++) {
     //       if (archivoUsuarios[i].email == value) {
@@ -57,23 +72,10 @@ const validacionesLogin = [
     //   return false
     // }).withMessage('Usuario no se encuentra registrado...'),
   
-    //Aquí valido si la contraseña colocada es la misma a la que tenemos hasheada
-    // body('password').custom( (value, {req}) =>{
-    //     for (let i = 0; i < archivoUsuarios.length; i++) {
-    //         if (archivoUsuarios[i].email == req.body.email) {
-    //             if(bcrypt.compareSync(value, archivoUsuarios[i].password)){
-    //               return true;
-    //             }else{
-    //               return false;
-    //             }
-    //         }
-    //     }
-        
-    // }).withMessage('Usurio o contraseña no coinciden'),
 ]
 
 //Aquí armo las validaciones del Registro
-const validacionesRegistro = [
+/*const validacionesRegistro = [
     //Aquí incoporé otras validaciones, para que las tengan de guía para sus proyectos  
     body('first_name').isLength({
           min: 1
@@ -107,7 +109,7 @@ const validacionesRegistro = [
           }
           return false;
       }).withMessage('Debe elegir su avatar y debe ser un archivo con formato: .JPG ó JPEG ó PNG')
-    ]
+    ]*/
 
 const guestMiddleware = require('../middlewares/guestMiddlewares')
 const authMiddleware = require('../middlewares/authMiddlewares')
