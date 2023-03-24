@@ -23,9 +23,26 @@ const usersController = require('../controllers/userController');
 const validaciones = [
     body("nombre").notEmpty().withMessage("El campo no puede estar vacio"),
     body("apellido").notEmpty().withMessage("El campo no puede estar vacio"),
-    body("email").notEmpty().withMessage("El campo no puede estar vacio"),
-    body("contraseña").notEmpty().withMessage("El campo no puede estar vacio"),
-    body("contraseñaagain").notEmpty().withMessage("El campo no puede estar vacio")
+    body("email")
+        .notEmpty().withMessage("El campo no puede estar vacio").bail()
+        .isEmail().withMessage("Debes escribir un correo válido"),
+    body("telefono").notEmpty().withMessage("El campo no puede estar vacio"),
+    body("contrasenia").notEmpty().withMessage("El campo no puede estar vacio"),
+    body("contraseñaagain").notEmpty().withMessage("El campo no puede estar vacio"),
+    body("imgperfil").custom((value, { req }) =>{
+        let file = req.file;
+        let acceptedExtensions = ['.jpg', '.png', '.gif'];
+
+        if (!file) {
+            throw new Error('Tienes que subir una imagen');
+        } else {
+            let fileExtension = path.extname(file.originalname);
+            if (!acceptedExtensions.includes(fileExtension)) {
+                throw new Error (`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+            }
+        }
+
+    })
 ]
 //Aquí ejecuto mis validaciones
 const validacionesLogin = [

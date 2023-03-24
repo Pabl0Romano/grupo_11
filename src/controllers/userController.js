@@ -18,10 +18,14 @@ const controller = {
     },
 
     processRegister: (req,res)=>{
-        // let errores = validationResult(req);
-        // if(!errores.isEmpty()){
-        //     return res.render("register",{mensajesDeError: errores.mapped()})
-        // }
+        const resultValidation = validationResult(req);
+        
+        if(resultValidation.errors.length > 0){
+            return res.render("register", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
         let hash = bcrypt.hashSync(req.body.contrasenia, 10);
         db.Users.create({
             first_name: req.body.nombre,
