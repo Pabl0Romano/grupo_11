@@ -13,7 +13,7 @@
                 <article class="datos">
                     <p class="campo">
                         <label for="nombre">Nombre*</label>
-                        <input type="text" name="nombre" id="nombre" class="nombre">
+                        <input type="text" name="nombre" id="nombre" class="nombre" value="<%= locals.oldData ? oldData.nombre : null %>">
                         <% if (locals.errors && errors.nombre) { %>
                             <div class="text-danger">
                                 <%=errors.nombre.msg %>
@@ -28,7 +28,7 @@
                             name="apellido" 
                             id="apellido" 
                             class="apellido"
-                            value=" <%= locals.oldData ? oldData.apellido : null %> "
+                            value="<%= locals.oldData ? oldData.apellido : null %>"
                         >
                         <% if (locals.errors && errors.apellido) { %>
                             <div class="text-danger">
@@ -38,7 +38,7 @@
                     </p>          
                     <p class="campo">
                         <label for="email">Email*</label>
-                        <input type="email" name="email" id="email" class="email">
+                        <input type="email" name="email" id="email" class="email" value="<%= locals.oldData ? oldData.email : null %>">
                         <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
                                 <%=errors.email.msg %>
@@ -48,7 +48,7 @@
                     
                     <p class="campo">
                         <label for="telefono">Teléfono</label>
-                        <input type="number" name="telefono" id="telefono" class="telefono">
+                        <input type="number" name="telefono" id="telefono" class="telefono" value="<%= locals.oldData ? oldData.telefono : null %>">
                         <% if (locals.errors && errors.telefono) { %>
                             <div class="text-danger">
                                 <%=errors.telefono.msg %>
@@ -78,6 +78,11 @@
                 <p>
                     <label for="imgperfil">Imagen de Perfil</label>
                     <input type="file" name= "imgperfil">
+                    <% if (locals.errors && errors.imgperfil) { %>
+                        <div class="text-danger">
+                            <%=errors.imgperfil.msg %>
+                        </div>
+                    <% } %>
                 </p>
                 <div class="crear">
                     <button type="submit">CREAR CUENTA</button>
