@@ -9,7 +9,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="titulo">Producto Encontrado</h2>
+				<h2 class="titulo">Detalle del producto</h2>
 			</div>
 		
 			<div class="col-12 col-sm-6 col-lg-3">
@@ -21,8 +21,12 @@
 						<span><%= productoEncontrado.discount %></span>
 						<i class="fas fa-truck"></i>
 					</article>
-				
 				</section>
+				<form action="/products/<%= productoEncontrado.id %>/edit">
+					<div class="crear">
+						<button type="submit">Editar producto</button>
+					</div>
+				</form>
 			</div>
 		
 		</div>

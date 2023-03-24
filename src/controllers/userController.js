@@ -29,9 +29,10 @@ const controller = {
             email: req.body.email,
             password: hash,
             phone_number: req.body.telefono,
-            cities_id: "1"
+            cities_id: "1",
+            rol: 0,
+            image: req.file.filename
       });
-
 		res.redirect('/');
 
     },
@@ -39,8 +40,10 @@ const controller = {
     profile: (req,res) =>{
         db.Users.findByPk(req.params.id)
 			.then(function(user){
+                console.log(user.image);
 				res.render("profile",{user:user})
 			})
+            
     },
 
     loginProcess: (req, res) => {

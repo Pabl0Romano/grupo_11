@@ -25,7 +25,7 @@ module.exports = (sequelize,dataTypes) =>{
         rol: {
             type: dataTypes.INTEGER
         },
-        direccion: {
+        image: {
             type: dataTypes.STRING
         },
         cities_id: {

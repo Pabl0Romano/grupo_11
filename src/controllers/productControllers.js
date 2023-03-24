@@ -42,16 +42,18 @@ const controller = {
 	},
 
 	store: (req, res) => {
-				db.product.create({
-					name: req.body.name,
-					description: req.body.description,
-					price: req.body.price,
-					category_id: req.body.category,
-					brand_id: req.body.brand
-			  });
-		
-		res.redirect('/products');
-    },
+		db.product.create({
+			name: req.body.name,
+			description: req.body.description,
+			price: req.body.price,
+			category_id: req.body.category,
+			brand_id: req.body.brand,
+			image: req.file.filename
+		})
+			.then(function (newProduct) {
+			res.redirect('/products/' + newProduct.id)
+		})
+},
 	// Update - Form to edit
 	edit: (req, res) => {
 		db.product.findByPk(req.params.id)

@@ -18,7 +18,7 @@
                 <br>
                 <p class="campo-perfil">Teléfono</p><%= user.phone_number %>
                 <br>
-                <p class="campo-perfil">Imagen de Perfil</p><img src="../../public/images/users/<%=user.image%>" alt="imagen de usuario">
+                <p class="campo-perfil">Imagen de Perfil</p><img src='../../images/users/<%= user.image %>' alt="imagen de usuario">
             </article>
         </section>
         <form action="/user/logout" method="POST">
