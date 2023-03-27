@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<%- include('./partials/head') %>
+
+<body>
+	<%- include('./partials/header') %>
+
+    <h2 class="titulo">Usuarios</h2>
+        <table class="tabla">
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Rol</th>
+            </tr>
+    <% for(let i = 0; i< users.length;i++) { %>
+        <tr>
+            <td><%= users[i].id %></td>
+            <td><%= users[i].first_name+" "+users[i].last_name %></td>
+            <td><% if (users[i].rol == 0) { %>
+                <p>CLIENTE <a href="/user/profile/adm/<%= users[i].id %>"><i class="fa-regular fa-pen-to-square"></i></a></p>
+                <% } else if (users[i].rol == 1) { %>
+                <p>ADMINISTRADOR <a href="/user/profile/adm/<%= users[i].id %>"><i class="fa-regular fa-pen-to-square"></i></a></p>
+                <% } %> 
+            </td>
+          </tr>
+    <% } %>
+    </table>
+    <%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

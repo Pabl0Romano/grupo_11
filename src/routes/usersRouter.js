@@ -121,5 +121,10 @@ router.get("/register", guestMiddleware, usersController.register);
 router.post("/register",upload.single("imgperfil"),validaciones,usersController.processRegister);
 router.get("/profile/:id", authMiddleware, usersController.profile);
 router.post("/logout", usersController.logout);
+router.get("/list",usersController.listar)
+router.get("/edit/:id",usersController.edit)
+router.put("/edit/:id",upload.single("imgperfil"),usersController.update)
+router.get("/profile/adm/:id", authMiddleware, usersController.profileAdm);
+router.put("/profile/adm/:id", authMiddleware, usersController.profileAdmProcess);
 
 module.exports = router;

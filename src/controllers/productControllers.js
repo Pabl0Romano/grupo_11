@@ -67,6 +67,7 @@ const controller = {
 			name: req.body.name,
 			description: req.body.description,
 			price: req.body.price,
+			image: req.file.filename
 		}, {
 			where: {
 				id: req.params.id
@@ -83,6 +84,30 @@ const controller = {
 			}
 		})
 		res.redirect("/products/listado")
+	},
+	listadoCategoria: (req,res) => {
+		let cat = req.params.id
+		db.product.findAll({
+			where: {
+				category_id: cat
+			}
+		})
+		.then (productos =>{
+			res.render("listado-xcategoria",{productos:productos})
+		})
+	},
+	search: (req,res) => {
+		let target = req.query.search
+		db.product.findAll()
+		.then(productos => {
+			let resultado = [];
+			for (let i = 0; i < productos.length; i++) {
+				if (productos[i].name.toLowerCase().includes(target.toLowerCase()) || productos[i].description.toLowerCase().includes(target.toLowerCase()))
+				resultado.push(productos[i]);
+			}
+			res.render("resultado-busqueda",{productos:resultado})
+		})
+
 	}
 };
 

@@ -8,10 +8,12 @@ const apiRouter = require("./routes/apiRouter")
 const methodOverride = require("method-override");
 const session = require("express-session")
 const userLoggedMiddleware = require('./middlewares/userloggedMiddlewares');
+const cookies = require("cookie-parser");
 
 let PORT = process.env.PORT || 3000
 
 app.use(session({secret: "Messi > Maradona"}))
+app.use(cookies());
 app.use(userLoggedMiddleware);
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:false}));

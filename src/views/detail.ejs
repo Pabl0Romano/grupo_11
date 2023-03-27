@@ -19,14 +19,31 @@
 						<p><%= productoEncontrado.name %></p>
 						<h2><%= productoEncontrado.price %></h2>
 						<span><%= productoEncontrado.discount %></span>
-						<i class="fas fa-truck"></i>
 					</article>
 				</section>
-				<form action="/products/<%= productoEncontrado.id %>/edit">
+				<% if (locals.user != undefined){ %>
+				<% if (locals.user.rol == 1){ %>
+                    <form action="/products/<%= productoEncontrado.id %>/edit">
+						<div class="crear">
+							<button type="submit">Editar producto</button>
+						</div>
+					</form>
+                <% } else { %>
 					<div class="crear">
-						<button type="submit">Editar producto</button>
+						<button type="submit">AÑADIR AL CARRITO</button>
 					</div>
-				</form>
+					<div class="crear">
+						<button type="submit">COMPRAR</button>
+					</div>
+					<% } %>
+					<% } else { %>
+						<div class="crear">
+							<button type="submit">AÑADIR AL CARRITO</button>
+						</div>
+						<div class="crear">
+							<button type="submit">COMPRAR</button>
+						</div>
+					<% } %>
 			</div>
 		
 		</div>

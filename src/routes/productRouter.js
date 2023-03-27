@@ -20,11 +20,13 @@ const productControllers = require("../controllers/productControllers");
 router.get("/",productControllers.index);
 router.get("/listado",productControllers.listado)
 router.get("/create",productControllers.create);
-router.get("/:id",productControllers.detail);
+router.get("/:id/detail",productControllers.detail);
 router.post("/create",upload.single("imgProducto"),productControllers.store);
 router.get("/:id/edit",productControllers.edit);
 router.put("/:id/edit",productControllers.update);
 router.post("/delete/:id",productControllers.destroy);
+router.get("/category/:id",productControllers.listadoCategoria)
+router.get("/search",productControllers.search)
 
 /*router.post('/create', uploadFile.single('imagen'), productControllers.store);
 router.get('/carrito/', productControllers.carrito);*/

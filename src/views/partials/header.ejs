@@ -15,10 +15,12 @@
         <nav class="hamburguesa">
             <i class="fa-solid fa-bars"></i>
         </nav>
-        <nav class="barra-busqueda">  
-            <input class="barra" placeholder="  Buscar productos">
-            <i id="lupa" class="fa-solid fa-magnifying-glass"></i>
+        <form action="/products/search" method="get">
+        <nav class="barra-busqueda">
+            <input type="text" name="search" class="barra" placeholder="  Buscar productos">
+            <button id="lupa" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </nav>
+    </form>
     </nav>
     <a class="envio_text" href="/envio">
         <nav class="envios-pais">
@@ -41,6 +43,10 @@
                 <a href="/user/register"><li>Regístrate</li></a>
             <% } else { %>
                 <a href="/user/profile/<%= locals.user.id %>"><li>Mi Perfil</li></a>
+                <% if (locals.user.rol == 1) { %>
+                    <a href="/user/list"><li>Usuarios</li></a>
+                    <a href="/products/create"><li>Crear Producto</li></a>
+                <% } %>
             <% } %>
         </ul>
     </nav>

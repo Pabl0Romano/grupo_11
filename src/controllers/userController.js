@@ -69,9 +69,9 @@ const controller = {
             let comparePassword = bcrypt.compareSync(req.body.contrasenia, usuario.password);
             if (comparePassword) {
                 req.session.usuarioLogueado = usuario;
-                // if(req.body.remember_user) {
-                //     res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*2})
-                // }
+                if(req.body.remember_user) {
+                    res.cookie('userEmail', req.body.email, {maxAge: (1000*60)*60})
+                }
                 return res.redirect('/user/profile/'+usuario.id)
             } else {
                 return res.send("error");
@@ -79,9 +79,72 @@ const controller = {
         }
     )   
     },
+    listar: (req,res) => {
+        db.Users.findAll()
+			.then(function(users){
+				res.render("listado-usuarios",{users:users})
+			})
+    },
     logout: (req,res) => {
       req.session.destroy();
       return res.redirect('/');
+    },
+    edit: (req,res) => {
+        db.Users.findByPk(req.params.id)
+			.then(function(user){
+				res.render("profile-edit",{user:user})
+			})
+    },
+    update: (req,res) => {
+        const resultValidation = validationResult(req);
+        
+        if(resultValidation.errors.length > 0){
+            return res.render("register", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        }
+        db.Users.update ({
+			first_name: req.body.nombre,
+            last_name: req.body.apellido,
+            email: req.body.email,
+            phone_number: req.body.telefono,
+            image: req.file.filename,
+		}, {
+			where: {
+				id: req.params.id
+			}
+		})
+		res.redirect("/user/profile/"+req.params.id);
+    },
+    profileAdm: (req,res) =>{
+        db.Users.findByPk(req.params.id)
+			.then(function(user){
+                console.log(user.image);
+				res.render("profile-edit-adm",{user:user})
+			})
+            
+    },
+    profileAdmProcess: (req,res) => {
+        if (req.body.rol == 1) {
+            db.Users.update ({
+                rol: 1
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+        } else {
+            db.Users.update ({
+                rol: 0
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+        }
+        
+        res.redirect("/user/list")
     }
 };
 
